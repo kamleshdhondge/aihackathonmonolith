@@ -1,5 +1,6 @@
 import Document from "./document.js";
 import Message from "./message.js";
+import text from "./text.js"
 
 const documents = {
   doc1: new Document("doc1", [
@@ -14,7 +15,8 @@ const documents = {
       "assistant",
       "Unfortunately not. Clause 16 explicitly exclude pets in the agreement. If you care about this, you should negotiated."
     ),
-  ]),
+  ], text
+  ),
 };
 
 export function getDocument(id) {
