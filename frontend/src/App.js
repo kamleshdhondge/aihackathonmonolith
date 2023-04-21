@@ -1,15 +1,20 @@
-import { useEffect } from 'react';
+import { useContext } from 'react';
+import {AppContext} from './state/AppContext';
 import './App.css';
-import {useCallBackend} from './hooks/useCallBackend';
 
-function App() {
-  useCallBackend();
+const useRenderPage = () => {
+  const {activePage} = useContext(AppContext);
 
-  return (
-    <div>
-      Starting
-    </div>
-  );
+  switch(activePage) {
+    case '':
+      return <div>Landing page</div>;
+    default:
+      return <div>Vroom Vroom</div>;
+  }
+}
+
+const App = () => {
+  return <div>{useRenderPage()}</div>;
 }
 
 export default App;
