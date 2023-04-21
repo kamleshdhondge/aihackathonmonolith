@@ -1,13 +1,9 @@
 import upload_doc from "./upload.js";
-import chat from "./chat.js";
-import summary from "./summary.js";
-import flags from "./flags.js";
+import documentEndpoint from "./document_endpoint.js";
 
 const constructorMethod = (app) => {
   app.use("/upload", upload_doc);
-  app.use("/chat", chat);
-  app.use("/summary", summary);
-  app.use("/flags", flags);
+  app.use("/document", documentEndpoint);
   app.use("*", (req, res) => {
     res.redirect("/");
   });
