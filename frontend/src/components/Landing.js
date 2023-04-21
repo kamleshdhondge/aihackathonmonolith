@@ -1,11 +1,22 @@
+import { useContext } from 'react'
 import './Landing.css'
+import { AppContext } from '../state/AppContext'
 
 const LeftSideView = () => {
     return <div className='column'>Some bla bla content</div>
 }
 
 const RightSideView = () => {
-   return <div className='column'>Upload it buddy</div>
+    const {setActivePage} = useContext(AppContext);
+
+   return <div className='column'>
+        <div>Upload it buddy</div>
+        <div>
+            <button onClick={(e) => {
+                setActivePage('application')
+            }}>Go to the second page</button>
+        </div>
+   </div>
 }
 
 export const Landing = (props) => {
