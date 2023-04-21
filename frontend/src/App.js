@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import {AppContext} from './state/AppContext';
 import {Landing} from './components/Landing';
+import {Main} from './components/Main';
 import './App.css';
 
 const useRenderPage = () => {
@@ -9,6 +10,8 @@ const useRenderPage = () => {
   switch(activePage) {
     case '':
       return <Landing />;
+    case 'application': 
+      return <Main />;
     default:
       return <div>Vroom Vroom</div>;
   }
