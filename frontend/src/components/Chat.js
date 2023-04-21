@@ -33,8 +33,8 @@ const SubmitMessage = (props) => {
 
 const ChatQuery = (props) => {
   return <div className='chat-query-container'>
-    <div className='chat-query-letter'>L</div>
-    <div className='chat-query-message'>dsf dsfdsf dsfdsfds</div>
+    {/* <div className='chat-query-letter'>L</div> */}
+    {/* <div className='chat-query-message'>dsf dsfdsf dsfdsfds</div> */}
     <ChatResponse />
   </div>;
 }
