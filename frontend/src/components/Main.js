@@ -12,17 +12,17 @@ const LeftSideView = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <Grid item xs={6}>
-          <div>1</div>
+        <Grid item >
+          <div style={{ backgroundColor: '#f5f5f5', height: 600, width:400, margin:20 }}>Summary</div>
         </Grid>
-        <Grid item xs={6}>
-          <div>2</div>
+        <Grid item >
+          <div style={{ backgroundColor: 'red', height: 50, width:400, margin:20 }}>Red</div>
         </Grid>
-        <Grid item xs={6}>
-          <div>3</div>
+        <Grid item >
+          <div style={{ backgroundColor: 'yellow', height: 50, width:400, margin:20 }}>Yello</div>
         </Grid>
-        <Grid item xs={6}>
-          <div>4</div>
+        <Grid item >
+          <div style={{ backgroundColor: 'green', height: 50, width:400, margin:20 }} >Green</div>
         </Grid>
       </Grid>
     </>
@@ -40,6 +40,7 @@ const RightSideView = () => {
 export const Main = (props) => {
   return (
     <div className="container">
+      
       <LeftSideView />
       <RightSideView />
     </div>
