@@ -1,5 +1,6 @@
 import Document from "./document.js";
 import Message from "./message.js";
+import {text} from "./constants.js"
 
 const documents = {
   doc1: new Document("doc1", [
@@ -10,11 +11,12 @@ const documents = {
     ),
     new Message(2, "user", "Are pets allowed?"),
     new Message(
-      2,
+      3,
       "assistant",
       "Unfortunately not. Clause 16 explicitly exclude pets in the agreement. If you care about this, you should negotiated."
     ),
-  ]),
+  ], text
+  ),
 };
 
 export function getDocument(id) {

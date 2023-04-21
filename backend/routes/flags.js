@@ -1,11 +1,8 @@
 
 
 import express from "express";
-import multer from 'multer';
-import fs from 'fs/promises';
 
 const router = express.Router();
-const upload = multer({ dest: 'uploads/' });
 
 // Define the route for the getHighlights endpoint
 router.get('/', (req, res) => {
