@@ -1,5 +1,5 @@
-import Document from "./document";
-import Message from "./message";
+import Document from "./document.js";
+import Message from "./message.js";
 
 const documents = {
   doc1: new Document("doc1", [

@@ -1,5 +1,5 @@
 import express from "express";
-import { getDocument } from "../model/documents_manager";
+import { getDocument } from "../model/documents_manager.js";
 
 const router = express.Router();
 
