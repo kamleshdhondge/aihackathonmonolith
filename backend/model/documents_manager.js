@@ -1,6 +1,6 @@
 import Document from "./document.js";
 import Message from "./message.js";
-import text from "./constants.js"
+import {text} from "./constants.js"
 
 const documents = {
   doc1: new Document("doc1", [
