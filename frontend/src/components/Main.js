@@ -1,12 +1,13 @@
 import "./Main.css";
 import Grid from "@mui/material/Grid";
 
-
-
 const LeftSideView = () => {
   return (
     <>
-      <Grid
+      <Card sx={{ minWidth: 275, minHeight: 600git }}>
+
+      </Card>
+      {/* <Grid
         container
         direction="column"
         justifyContent="center"
@@ -24,7 +25,7 @@ const LeftSideView = () => {
         <Grid item >
           <div style={{ backgroundColor: 'green', height: 50, width:400, margin:20 }} >Green</div>
         </Grid>
-      </Grid>
+      </Grid> */}
     </>
   );
 };
@@ -40,7 +41,6 @@ const RightSideView = () => {
 export const Main = (props) => {
   return (
     <div className="container">
-      
       <LeftSideView />
       <RightSideView />
     </div>
