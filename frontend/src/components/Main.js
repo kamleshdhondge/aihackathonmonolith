@@ -1,4 +1,5 @@
-import "./Main.css";
+import './Main.css'
+import {Chat} from './Chat';
 import Grid from "@mui/material/Grid";
 
 const LeftSideView = () => {
@@ -31,12 +32,10 @@ const LeftSideView = () => {
 };
 
 const RightSideView = () => {
-  return (
-    <div className="column">
-      <div className="column">Chat with me man !!!</div>
-    </div>
-  );
-};
+   return <div className='column'>
+       <Chat />
+   </div>
+}
 
 export const Main = (props) => {
   return (
