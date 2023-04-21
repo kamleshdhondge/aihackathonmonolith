@@ -1,11 +1,19 @@
 import './Main.css'
 import {Chat} from './Chat';
 import Grid from "@mui/material/Grid";
-
+import Card from "@mui/material/Card";
+import Typography from '@mui/material/Typography';
 const LeftSideView = () => {
   return (
     <>
-      <Grid
+      <Card sx={{ minWidth: '100vh', minHeight: 600 }}>
+      <div style={{ margin:20 }}>
+       <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          Type of contract
+        </Typography>
+      </div>
+      </Card>
+      {/* <Grid
         container
         direction="column"
         justifyContent="center"
@@ -23,7 +31,7 @@ const LeftSideView = () => {
         <Grid item >
           <div style={{ backgroundColor: 'green', height: 50, width:400, margin:20 }} >Green</div>
         </Grid>
-      </Grid>
+      </Grid> */}
     </>
   );
 };
@@ -37,7 +45,6 @@ const RightSideView = () => {
 export const Main = (props) => {
   return (
     <div className="container">
-      
       <LeftSideView />
       <RightSideView />
     </div>
