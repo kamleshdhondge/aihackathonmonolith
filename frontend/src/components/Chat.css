@@ -30,7 +30,6 @@
 }
 
 .messages-box {
-    background-color: red;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -69,19 +68,24 @@
     width: 100%;
     display: flex;
     box-sizing: border-box;
+    padding: 5px 0;
 }
 
 .chat-query-letter {
-    padding: 10px 14px;
+    padding: 7px 11px;
     border-radius: 50%;
-    background-color: yellow;
+    background-color: #B1D0E0;
+    color: white;
+    margin-right: 12px;
 }
 
 .chat-query-message {
-    background-color: blue;
+    margin-top: 3px;
+    font-weight: 400;
 }
 
 .chat-response {
-    padding: 16px;
-    background-color: antiquewhite;
+    padding: 22px;
+    background-color: #ECECEC;
+    border-radius: 4px;
 }
