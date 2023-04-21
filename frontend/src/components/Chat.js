@@ -14,12 +14,12 @@ const ChatBox = () => {
 const Messages = (props) => {
   return <div className="messages-box">
     {[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1].map((i, index) => {
-      return <Paper
+      return <ChatQuery
       key={index}
             style={{
               maxWidth: 400,
             }}
-      >hah ahhah h</Paper>
+      ></ChatQuery>
     })}
   </div>;
 }
@@ -30,6 +30,13 @@ const SubmitMessage = (props) => {
       <input type="text" className="submit-message-input" />
     </div>
   );
+}
+
+const ChatQuery = (props) => {
+  return <div className='chat-query-container'>
+    <div className='chat-query-letter'>L</div>
+    <div className='chat-query-message'>dsf dsfdsf dsfdsfds</div>
+  </div>;
 }
 
 export const Chat = (props) => {

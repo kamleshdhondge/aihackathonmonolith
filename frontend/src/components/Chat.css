@@ -55,3 +55,19 @@
 .submit-message-input:focus {
     outline: none;
 }
+
+.chat-query-container {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.chat-query-letter {
+    padding: 10px 14px;
+    border-radius: 50%;
+    background-color: yellow;
+}
+
+.chat-query-message {
+    background-color: blue;
+}
