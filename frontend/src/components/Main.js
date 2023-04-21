@@ -1,4 +1,5 @@
 import './Main.css'
+import {Chat} from './Chat';
 
 const LeftSideView = () => {
     return <div className='column'>Here is your report mate</div>
@@ -6,7 +7,7 @@ const LeftSideView = () => {
 
 const RightSideView = () => {
    return <div className='column'>
-       <div className='column'>Chat with me man !!!</div>
+       <Chat />
    </div>
 }
 
