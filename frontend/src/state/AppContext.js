@@ -1,11 +1,19 @@
-import React, { createContext } from 'react';
+import React, { createContext, useState } from 'react';
+
+const emptyFunction = () => {};
 
 const defaultValue = {
-
+    activePage: '',
+    setActivePage: emptyFunction
 }
 
 const useAPI = () => {
+    const [activePage, setActivePage] = useState('');
 
+    return {
+        activePage,
+        setActivePage
+    }
 }
 
 export const AppContext = createContext(defaultValue);
