@@ -29,19 +29,10 @@ const LeftSideView = () => {
 };
 
 const RightSideView = () => {
-<<<<<<< HEAD
    return <div className='column'>
        <Chat />
    </div>
 }
-=======
-  return (
-    <div className="column">
-      <div className="column">Chat with me man !!!</div>
-    </div>
-  );
-};
->>>>>>> 7f9483ef9a7edf9a85708f8e479c17d1dfb5ba4e
 
 export const Main = (props) => {
   return (
