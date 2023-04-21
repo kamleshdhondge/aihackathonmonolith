@@ -1,12 +1,17 @@
 import './Main.css'
 import {Chat} from './Chat';
 import Grid from "@mui/material/Grid";
-
+import Card from "@mui/material/Card";
+import Typography from '@mui/material/Typography';
 const LeftSideView = () => {
   return (
     <>
-      <Card sx={{ minWidth: 275, minHeight: 600git }}>
-
+      <Card sx={{ minWidth: '100vh', minHeight: 600 }}>
+      <div style={{ margin:20 }}>
+       <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          Type of contract
+        </Typography>
+      </div>
       </Card>
       {/* <Grid
         container
