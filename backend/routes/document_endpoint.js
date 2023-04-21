@@ -4,7 +4,8 @@ import { getDocument } from "../model/documents_manager.js";
 const router = express.Router();
 
 router.route("/:id/chat").get(async (req, res) => {
-  res.json({ message: `${req.params.id}` });
+  const doc = getDocument(req.params.id);
+  res.json(doc.chatHistory);
 });
 
 router.route("/:id/summary").get(async (req, res) => {

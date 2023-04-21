@@ -11,7 +11,7 @@ const documents = {
     ),
     new Message(2, "user", "Are pets allowed?"),
     new Message(
-      2,
+      3,
       "assistant",
       "Unfortunately not. Clause 16 explicitly exclude pets in the agreement. If you care about this, you should negotiated."
     ),
