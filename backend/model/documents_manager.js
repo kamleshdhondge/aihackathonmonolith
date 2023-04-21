@@ -18,7 +18,7 @@ const documents = {
         "Unfortunately not. Clause 16 explicitly exclude pets in the agreement. If you care about this, you should negotiated."
       ),
     ],
-    text
+    text,
   ),
 };
 
