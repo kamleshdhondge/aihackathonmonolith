@@ -32,12 +32,6 @@ router.route("/upload").post(upload.single('file'), async (req, res, next) => {
 
   });
 
-  const { PDFDocument } = require('pdf-lib');
-const fs = require('fs');
-
-const pdfDoc = await PDFDocument.load(fs.readFileSync('file.pdf'));
-const text = await pdfDoc.getText();
-console.log(text);
 
 
 export default router;
