@@ -75,9 +75,6 @@ const LeftSideView = () => {
         </div>
       </Card>
       <div className="button-parent">
-          <VerifyButton />
-      </div>
-      <div className="button-parent">
         <Link className="negotiation-link" href="#" underline="none">Make a negotiation offer for me</Link>
       </div>
     </div>
