@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-function getSections(filePath) {
+export function getSections(filePath) {
   // Read file contents synchronously
   const fileContent = fs.readFileSync(filePath, 'utf-8');
 
