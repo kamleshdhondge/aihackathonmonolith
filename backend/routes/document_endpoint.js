@@ -1,7 +1,14 @@
 import express from "express";
 import { getDocument } from "../model/documents_manager.js";
 import { summarize, getFlags } from "../controller/document_controller.js";
-import { chatCompletion, completion } from "../controller/openai_controller.js";
+import {
+  chatCompletion,
+  completion,
+  embedding,
+} from "../controller/openai_controller.js";
+import { getSections } from "../controller/preprocesser.js";
+import { text } from "../model/constants.js";
+import fs from "fs";
 
 const router = express.Router();
 
@@ -52,12 +59,50 @@ router.route("/openai/chat-completion").post(async (req, res) => {
 
 router.route("/:id/summary").get(async (req, res) => {
   let text = getDocument(req.params.id).text;
-  res.json({ summarize: summarize(text) });
+  const summary = await summarize(text);
+  res.json({ summarize: summary });
 });
 
 router.route("/:id/flags").get(async (req, res) => {
   let text = getDocument(req.params.id).text;
   res.json(getFlags(text));
+});
+
+router.route("/:id/embeddings").post(async (req, res) => {
+  const sections = getSections(text);
+
+  const take = req.body.take;
+  let sectionsToProcess = sections;
+  if (take) {
+    sectionsToProcess = sections.slice(0, take);
+  }
+
+  const embeddings = await Promise.all(
+    sectionsToProcess.map(async (section) => await embedding(section))
+  );
+
+  function arrayToCSV(arr) {
+    let csvContent = "";
+
+    // Add row header
+    const header = Array.from({ length: arr[0].length }, (_, i) => i);
+    csvContent += header.join(",") + "\r\n";
+
+    // Add data rows
+    arr.forEach((rowArray) => {
+      let row = rowArray.join(",");
+      csvContent += row + "\r\n";
+    });
+
+    return csvContent;
+  }
+
+  const csvContent = arrayToCSV(embeddings);
+
+  fs.writeFile("output.csv", csvContent, (err) => {
+    if (err) throw err;
+    res.send("CSV file saved!");
+  });
 });
 
 export default router;
