@@ -91,7 +91,7 @@ const GreenFlag = () => {
 const LeftSideView = () => {
   return (
     <>
-      <Card sx={{ minWidth: "100vh", minHeight: 600 }}>
+      <Card sx={{ minWidth: "100vh", minHeight: 600, maxWidth: '50%', overflow: 'scroll', maxHeight: '100vh' }}>
         <div style={{ margin: 40 }}>
           <Typography variant="h4" gutterBottom>
             Type of contract

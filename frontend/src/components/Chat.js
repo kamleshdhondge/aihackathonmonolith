@@ -1,6 +1,6 @@
 import './Chat.css';
 import {AppContext} from '../state/AppContext';
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useContext } from 'react';
 import {useChatQuery} from '../hooks/useChatQuery'
 
@@ -34,23 +34,27 @@ const Messages = (props) => {
 }
 
 const SubmitMessage = (props) => {
-  const {chatBotmessages, setChatBotmessages, setSendQuery} = useContext(AppContext);
+  const {chatBotmessages, setChatBotmessages, setSendQuery, setSendQueryMessage} = useContext(AppContext);
+  const [message, setMessage] = useState('');
+
   useChatQuery();
 
-  const onSearch = (e) => {
-    setChatBotmessages([...chatBotmessages, <ChatQuery query="Something" />]);
+  const onSearch = () => {
+    setChatBotmessages([...chatBotmessages, <ChatQuery query={message} />]);
     setSendQuery(true);
+    setSendQueryMessage(message);
+    setMessage('');
   }
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
-      onSearch(event);
+      onSearch();
     }
   };
   
   return (
     <div className="submit-message-container">
-      <input type="text" className="submit-message-input" onKeyDown={handleKeyDown}/>
+      <input type="text" className="submit-message-input" onKeyDown={handleKeyDown} onChange={(e)=> {setMessage(e.target.value)}}value={message}/>
       <img className='search-icon' src='./sent.png' alt='Search Icon' onClick={onSearch} />
     </div>
   );
@@ -67,7 +71,7 @@ const ChatQuery = (props) => {
 
 export const ChatResponse = (props) => {
   const {message} = props;
-  return <div className='chat-response'>{message}</div>
+  return <div className='chat-response-container'><div className='chat-response'>{message}</div></div>
 }
 
 export const Chat = (props) => {
