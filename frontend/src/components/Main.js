@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import { FiberManualRecord } from "@mui/icons-material";
 import { Header } from "./Header";
+import { useEffect } from "react";
 
 const RedFlags = () => {
   return (
@@ -90,29 +91,20 @@ const GreenFlag = () => {
   );
 };
 const LeftSideView = () => {
+  const [summary, setSummary] =  React.useState(" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed d eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedconsectetur adipiscing elit, sed do eiusmod");
+ useEffect(() => {
+  
+ },[])
   return (
     <div className="report-container">
       <Card>
         <div className="report-content">
-          <h3>
-            Type of contract
-          </h3>
-          <div className="margin-bottom-15">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod
-          </div>
-          <Divider />
+
           <h3 className="margin-top-15">
             Contract Summary
           </h3>
           <div className="margin-bottom-15">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-            do eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod
+          {summary}
           </div>
           <Divider />
           <Card variant="outlined" style={{ borderColor: "red",marginTop: 20,padding: 20  }}>
