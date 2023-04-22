@@ -4,6 +4,7 @@ import axios from "axios";
 
 const COMPLETIONS_API_URL = "https://api.openai.com/v1/completions";
 const CHAT_COMPLETIONS_API_URL = "https://api.openai.com/v1/chat/completions";
+const EMBEDDINGS_API_URL = "https://api.openai.com/v1/embeddings";
 
 export function tokens(text) {
   let tokens = encode(text);
@@ -58,4 +59,25 @@ export async function chatCompletion(messages, options) {
     },
   });
   return response.data.choices[0].message.content;
+}
+
+export async function embedding(text) {
+  const model = "text-embedding-ada-002";
+  const apiKey = process.env.SECRET_KEY;
+
+  const data = {
+    input: text,
+    model,
+  };
+
+  const response = await axios({
+    method: "post",
+    url: EMBEDDINGS_API_URL,
+    data: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+  });
+  return response.data.data[0].embedding;
 }
