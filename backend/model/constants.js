@@ -47,15 +47,7 @@ Justification: It is unreasonable for tenants to have to pay a fee to transfer t
 
 Negotiation Tip: Ask the landlord to waive the fee or negotiate a lower fee. You could also offer to find a replacement tenant yourself to make the process easier for the landlord.
 
-4. Red Flag: The tenant must pay for any damages or repairs caused by them.
-
-Suggested Change: The tenant should only be responsible for damages or repairs that are their fault.
-
-Justification: It is unfair for tenants to be held responsible for damages or repairs that are not their fault, such as those caused by normal wear and tear.
-
-Negotiation Tip: Ask the landlord to clarify what they mean by "damages or repairs caused by them" and negotiate specific exceptions to this clause. For example, you could agree that the tenant is not responsible for damages or repairs caused by normal wear and tear or by events outside of their control.
-
-5. Red Flag: The landlord is not responsible for repairing the tenant's belongings or the premises if they are destroyed or damaged by a storm or flood.
+4. Red Flag: The landlord is not responsible for repairing the tenant's belongings or the premises if they are destroyed or damaged by a storm or flood.
 
 Suggested Change: The landlord should be responsible for repairing the premises if they are damaged by a storm or flood, but the tenant should be responsible for repairing their own belongings.
 
