@@ -1,6 +1,6 @@
 import express from "express";
 import { getDocument } from "../model/documents_manager.js";
-import { summarize } from "../controller/summary.js";
+import { summarize,getFlags } from "../controller/document_controller.js";
 
 const router = express.Router();
 
@@ -15,7 +15,8 @@ router.route("/:id/summary").get(async (req, res) => {
 });
 
 router.route("/:id/flags").get(async (req, res) => {
-  res.json({ message: `${req.params.id}` });
+  let text = getDocument(req.params.id).text;
+  res.json( getFlags(text) );
 });
 
 export default router;

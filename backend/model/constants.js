@@ -1,3 +1,49 @@
+export const flags={
+      "Red flags": [
+      {
+      "flag": "This rent price is 20% higher than the local market average.",
+      "category": "rent amount"
+      },
+      {
+      "flag": "This pet policy may be disadvantageous to the tenant and is stricter than local law.",
+      "category": "pet policy"
+      },
+      {
+      "flag": "This renewal clause favors the landlord and is not in line with local law.",
+      "category": "renewal clause"
+      }
+      ],
+      "Orange flags": [
+      {
+      "flag": "This late payment penalty is 1.5x higher than the maximum allowed by local law.",
+      "category": "late payment penalty"
+      },
+      {
+      "flag": "This lease term is longer than the average in the local market.",
+      "category": "lease term"
+      },
+      {
+      "flag": "This notice period for move-out is shorter than the minimum required by local law.",
+      "category": "notice period"
+      }
+      ],
+      "Green flags": [
+      {
+      "flag": "This clause places maintenance responsibilities on the landlord, which is in line with local law.",
+      "category": "maintenance responsibilities"
+      },
+      {
+      "flag": "This security deposit is in line with the local market average.",
+      "category": "security deposit"
+      },
+      {
+      "flag": "This rent increase clause is in line with the average in the local market.",
+      "category": "rent increase clause"
+      }
+      ]
+      };
+
+export const summary = `This is a lease agreement between Jameson Property Management Limited (Landlord) and Emma Thompson (Tenant) for the premises located at 43-45 Thurloe Street, London, SW7 2LQ, United Kingdom. The lease term is from May 1, 2023, to April 30, 2024. The monthly rent is £3,500, and a security deposit of £4,000 is required. The Landlord is responsible for maintenance and repairs, except for damages caused by the Tenant or Tenant's guests. Pets are not allowed, and rent increase is subject to local market standards. The agreement is governed by the laws of England and Wales, and any changes require written agreement from both parties`;
 export const text = `LEASE AGREEMENT
 
       THIS LEASE AGREEMENT (hereafter referred to as the "Agreement") made on April 21, 2023, by and between Jameson Property Management Limited, a company organized under the laws of England and Wales with its registered office at 45-47 High Street, Cobham, Surrey, KT11 3DP, United Kingdom (hereafter referred to as "Landlord") and Emma Thompson, an individual residing at 27 Queensgate Gardens, London, SW7 5JA, United Kingdom (hereafter referred to as "Tenant").
