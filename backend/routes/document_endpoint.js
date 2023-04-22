@@ -23,7 +23,6 @@ router
     res.json(doc.chatHistory);
   })
   .post(async (req, res) => {
-    const doc = getDocument(req.params.id);
     const messageText = req.body.message;
 
     const userEmbedding = await embedding(messageText);
@@ -54,8 +53,6 @@ router
         content: messageText,
       },
     ];
-
-    console.log(messages);
 
     const assistantMessage = await chatCompletion(messages, {
       temperature: 0.0,

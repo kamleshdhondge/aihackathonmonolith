@@ -1,10 +1,6 @@
-
-
 import express from "express";
-import bodyParser from 'body-parser';
-
-import cors from 'cors';
-
+import bodyParser from "body-parser";
+import cors from "cors";
 
 const app = express();
 
@@ -12,7 +8,7 @@ import configRoutes from "./routes/index.js";
 // global.__basedir = __dirname;
 
 var corsOptions = {
-  origin: "*"
+  origin: "*",
 };
 
 app.use(cors(corsOptions));
