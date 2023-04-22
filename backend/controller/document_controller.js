@@ -26,7 +26,7 @@ export async function summarize(text) {
   ];
   const maxTokens = 2000
   const result = await chatCompletion(messages, {temperature: 0, maxTokens, presencePenalty:-1 ,frequencyPenalty:2})
-  return result
+  return result.split('\n\n')
 }
 
 export function getFlags(text) {
