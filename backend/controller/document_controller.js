@@ -7,9 +7,7 @@ import { getSections } from "./preprocesser.js";
 config();
 
 export function summarize(text) {
-
   return getSections(text);
-  
 }
 
 export function getFlags(text) {
