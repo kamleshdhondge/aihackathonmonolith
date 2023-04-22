@@ -13,7 +13,7 @@ export function getSections(text) {
     let currentSection = '';
     for (let i = 0; i < words.length; i++) {
       const word = words[i];
-      if ((currentSection + ' ' + word).split(" ").length <= 2500) {
+      if ((currentSection + ' ' + word).split(" ").length <= 1000) {
         currentSection += ' ' + word;
       } else {
         sections.push(currentSection.trim());
@@ -27,3 +27,5 @@ export function getSections(text) {
     return sections;
   }).reduce((acc, curr) => acc.concat(curr), []).filter((section)=>section!=="");
 }
+
+console.log(getSections(text)[4]);
