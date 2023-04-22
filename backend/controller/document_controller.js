@@ -51,7 +51,7 @@ export async function getFlags(text) {
 }
 
 export async function getAdvice(text) {
-  return advice;
+  return advice.split('\n\n');
   /* const flags=await getFlags(text);
   const messages = [
     {
