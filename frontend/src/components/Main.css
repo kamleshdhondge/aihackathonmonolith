@@ -64,6 +64,7 @@
     border-radius: 4px;
     border: 0px;
     margin-top: 40px;
+    cursor: pointer;
 }
 
 .button-parent {
