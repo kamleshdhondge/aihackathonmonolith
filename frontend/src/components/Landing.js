@@ -12,10 +12,12 @@ import {
 } from "@mui/material";
 import logo from "../landing_page.PNG";
 import qrCode from "../qr_code.PNG";
+import dragDrop from "../drag_drop.PNG";
 import { auto } from "@popperjs/core";
 import { withStyles } from "@mui/material/styles";
 import { fontSize, fontStyle, fontWeight, lineHeight } from "@mui/system";
 import Dropzone from "react-dropzone";
+import DropzoneComponent from './DropzoneComponent.js';
 
 const LeftSideView = () => {
   return <div className="column">Some bla bla content</div>;
@@ -25,16 +27,16 @@ const RightSideView = () => {
   const { setActivePage } = useContext(AppContext);
 
   return (
-    <div>
+    <div style={{ background: "white", height: "100vh" }}>
       <div style={{ background: "white", height: "100vh" }}>
         <div style={{ marginTop: 70 }}>
           <Grid
             container
             direction="column"
-            justifyContent="center"
+            justifyContent="space-around"
             alignItems="center"
           >
-            <Grid item style={{ width: "60%" }}>
+            <Grid item style={{ width: "60%",marginTop: 80 }}>
               {/* <FormControl variant="standard">
                 <InputLabel htmlFor="component-simple">
                   Add contract’s link
@@ -51,23 +53,12 @@ const RightSideView = () => {
                 fullWidth={true}
               />
             </Grid>
-            <Grid item>
-              {/* <FileDrag /> */}
-              <Dropzone onDrop={(acceptedFiles) => console.log(acceptedFiles)}>
-                {({ getRootProps, getInputProps }) => (
-                  <section>
-                    <div {...getRootProps()}>
-                      <input {...getInputProps()} />
-                      <p>
-                        Drag 'n' drop some files here, or click to select files
-                      </p>
-                    </div>
-                  </section>
-                )}
-              </Dropzone>   
+            <Grid item style={{ marginTop: 80 }}>
+      
+               <DropzoneComponent />
             </Grid>
 
-            <Grid item>
+            <Grid item style={{ marginTop: 80 }}>
               <img src={qrCode} alt="this is car image" />
             </Grid>
           </Grid>
