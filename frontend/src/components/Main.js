@@ -8,15 +8,23 @@ import { Header } from "./Header";
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import SimpleBackdrop from './Spinner.js';
+import ReportProblemSharpIcon from '@mui/icons-material/ReportProblemSharp';
+import ManageSearchSharpIcon from '@mui/icons-material/ManageSearchSharp';
+import CheckCircleSharpIcon from '@mui/icons-material/CheckCircleSharp';
+import WarningAmberSharpIcon from '@mui/icons-material/WarningAmberSharp';
+
 const VerifyButton = () => {
   return <button className="verify-button">Get a verified review</button>
 }
 
 const FlagSection = (props) => {
-  const {header, items, borderColor, icon} = props;
+  const {header, items, borderColor, icon, additionalText, iconRight} = props;
 
-  return <div className="flag-section-container" style={{padding: '20px', borderRadius: '4px', border: `1px solid ${borderColor}`}}>
+  return <Card  elevation={2} style={{borderRadius:8}}>
+  <div className="flag-section-container" style={{padding: '20px'}}>
     <h3>{header}</h3>
+    <br />
+    <p>{additionalText}</p>
     <br />
     <ul className="flag-section-list">
       {
@@ -25,8 +33,13 @@ const FlagSection = (props) => {
         })
       }
     </ul>
-    <img className="flag-section-icon" src={`./${icon}`} />
-  </div>;
+    
+    {
+      iconRight
+    }
+
+  </div>
+  </Card>;
 }
 
 function ExpandableText({ text }) {
@@ -44,6 +57,11 @@ function ExpandableText({ text }) {
     setExpanded(true);
   };
 
+  const handleShrinkClick = () => {
+    setExpanded(false);
+  };
+
+
   return (
     <div>
       {truncatedText} {' '}
@@ -53,10 +71,12 @@ function ExpandableText({ text }) {
         </a>
       )}
       {expanded && remainingText}
+      {expanded && <a href="#" onClick={handleShrinkClick}>
+        {' '} See less
+        </a>}
     </div>
   );
 }
-
 
 const LeftSideView = () => {
   const [summary, setSummary] =  useState(" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed d eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedconsectetur adipiscing elit, sed do eiusmod");
@@ -86,22 +106,38 @@ const LeftSideView = () => {
   return (
    
     <div className="report-container">
+      <div className="download-report-container">
+        <div className="relative-parent">
+          <a className="download-link" href="#" onClick={() => {
+              const printContents = document.getElementById("printable-report").innerHTML;
+              const originalContents = document.body.innerHTML;
+              document.body.innerHTML = printContents;
+              window.print();
+              document.body.innerHTML = originalContents;
+          }}>
+            Download a PDF file 
+          </a>
+        </div>
+      </div>
       <Card>
-        <div className="report-content">
+        <div id='printable-report' className="report-content">
           <div className="margin-bottom-15" />
 
           <h3 className="margin-top-15">
-            Contract Summary
+            Contract Summary  
           </h3>
           <div className="margin-bottom-15" >
             <ExpandableText text={summary} />
           </div>
           <div className="margin-bottom-15" />
-          <FlagSection items={flags.data["Red flags"].map(data =>data.flag)} borderColor='#FF5A79' header='Red Flags' icon='red-flag.png' />
+          <p></p>
+
+          <FlagSection items={flags.data["Red flags"].map(data =>data.flag)} iconRight={<WarningAmberSharpIcon fontSize="large" style={{position: "absolute", top:15 ,right: 15,  color: "#e63946"}} />} header='Unfavourable Terms' additionalText="These terms are unfavourable to you or uncommon. You should be aware of them and should try to negotiate them if you can." />
           <div className="margin-bottom-15" />
-          <FlagSection items={flags.data["Orange flags"].map(data =>data.flag)} borderColor='#FFBD5A' header='Yellow Flags' icon='yellow-flag.png' />
+          <FlagSection items={flags.data["Orange flags"].map(data =>data.flag)} iconRight={<ManageSearchSharpIcon fontSize="large" style={{position: "absolute", top:15 ,right: 15,  color: "#ffb703"}} />} borderColor='#FFBD5A' header='Heads Up' additionalText="These are standard terms, but they create oblications you should be aware of." />
           <div className="margin-bottom-15" />
-          <FlagSection items={flags.data["Green flags"].map(data =>data.flag)} borderColor='#70D77A' header='Green Flags' icon='green-flag.png' />
+
+          <FlagSection items={flags.data["Green flags"].map(data =>data.flag)} borderColor='#70D77A' iconRight={<CheckCircleSharpIcon  style={{position: "absolute", top:15 ,right: 15, color: "#0ead69"}} />} header='Great News' additionalText="The contract contains some terms that are favourable to you: " />
           <div className="margin-bottom-15" />
           <h3 className="margin-top-15">
             This is our advice for you

@@ -9,9 +9,9 @@ config();
 export async function summarize(text) {
   const sections = getSections(text);
   const summaries = await Promise.all(sections.map(async (section) => {
-    const prompt = "Use this section to answer questions:" + section+SECTION_SUMMARY_PROMPT;
+    const prompt = "Use this contract section to answer questions:" + section+SECTION_SUMMARY_PROMPT;
     const maxTokens = MAX_TOKENS
-    const result = await completion(prompt, { temperature: 0, maxTokens, frequencyPenalty:2})
+    const result = await completion(prompt, { temperature: 0, maxTokens})
     return result
   }));
 
@@ -25,8 +25,8 @@ export async function summarize(text) {
     { role: "user", content: MAIN_SUMMARY_PROMPT },
   ];
   const maxTokens = 2000
-  const result = await chatCompletion(messages, { temperature: 0, maxTokens, frequencyPenalty:1})
-  return result
+  const result = await chatCompletion(messages, {temperature: 0, maxTokens, presencePenalty:-1 ,frequencyPenalty:2})
+  return result.split('\n\n')
 }
 
 export async function getFlags(text) {

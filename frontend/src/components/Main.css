@@ -27,6 +27,7 @@
     width: 55%;
     overflow: scroll;
     box-sizing: border-box;
+    position: relative;
 }
 
 .report-content {
@@ -88,6 +89,9 @@
         width: 100% !important;
         height: 100vh;
     }
+    .download-report-container {
+        width: 100% !important;
+    }
     .thirty-percent-column {
         display: none;
     }
@@ -96,6 +100,31 @@
     }
 }
 
-@media only screen and (max-width: 1024px) {
+.download-report-container {
+    height: 70px;
+    width: 55%;
+    left: 0;
+    background-color: #E3E3E3;
+    position: fixed;
+    top: 70px;
+    z-index: 1;
+}
+
+.relative-parent {
+    width: 100%;
+    position: relative;
+}
+
+.download-link {
+    position: absolute;
+    right: 57px;
+    top: 23px;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+}
+
+.download-link-icon {
+    padding-top: 10px;
 
 }
