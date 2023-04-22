@@ -112,6 +112,7 @@ const LeftSideView = ({ open, setOpen }) => {
         let advice = await axios("http://localhost:3003/document/doc1/advice");
         console.log("advice: ",advice);
         setAdvice(advice.data);
+        await new Promise(resolve => setTimeout(resolve, 5000));
         setOpen(false);
       }
     );
@@ -212,7 +213,7 @@ const LeftSideView = ({ open, setOpen }) => {
           <div className="margin-bottom-15" />
           <h3 className="margin-top-15">This is our advice for you</h3>
           <div className="margin-bottom-15">
-            <ul className="margin-bottom-15">
+            <ul className="margin-left-15">
               {advice.map((data) => {
                 return <>
                   <li className="margin-bottom-15">{data}</li>
