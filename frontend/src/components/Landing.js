@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import "./Landing.css";
 import { AppContext } from "../state/AppContext";
+import FileDrag from "./FileDrag.js";
 import {
   Grid,
   FormControl,
@@ -14,6 +15,7 @@ import qrCode from "../qr_code.PNG";
 import { auto } from "@popperjs/core";
 import { withStyles } from "@mui/material/styles";
 import { fontSize, fontStyle, fontWeight, lineHeight } from "@mui/system";
+import Dropzone from "react-dropzone";
 
 const LeftSideView = () => {
   return <div className="column">Some bla bla content</div>;
@@ -49,6 +51,22 @@ const RightSideView = () => {
                 fullWidth={true}
               />
             </Grid>
+            <Grid item>
+              {/* <FileDrag /> */}
+              <Dropzone onDrop={(acceptedFiles) => console.log(acceptedFiles)}>
+                {({ getRootProps, getInputProps }) => (
+                  <section>
+                    <div {...getRootProps()}>
+                      <input {...getInputProps()} />
+                      <p>
+                        Drag 'n' drop some files here, or click to select files
+                      </p>
+                    </div>
+                  </section>
+                )}
+              </Dropzone>   
+            </Grid>
+
             <Grid item>
               <img src={qrCode} alt="this is car image" />
             </Grid>
