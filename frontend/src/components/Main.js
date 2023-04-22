@@ -5,7 +5,7 @@ import {
   Link,
 } from "@mui/material";
 import { Header } from "./Header";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const VerifyButton = () => {
   return <button className="verify-button">Get a verified review</button>
@@ -29,7 +29,7 @@ const FlagSection = (props) => {
 }
 
 const LeftSideView = () => {
-  const [summary, setSummary] =  React.useState(" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed d eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedconsectetur adipiscing elit, sed do eiusmod");
+  const [summary, setSummary] =  useState(" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed d eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedconsectetur adipiscing elit, sed do eiusmod");
  useEffect(() => {
   
  },[])
