@@ -13,10 +13,12 @@ const VerifyButton = () => {
 }
 
 const FlagSection = (props) => {
-  const {header, items, borderColor, icon} = props;
+  const {header, items, borderColor, icon, additionalText} = props;
 
-  return <div className="flag-section-container" style={{padding: '20px', borderRadius: '4px', border: `1px solid ${borderColor}`}}>
+  return <div className="flag-section-container" style={{padding: '20px'}}>
     <h3>{header}</h3>
+    <br />
+    <p>{additionalText}</p>
     <br />
     <ul className="flag-section-list">
       {
@@ -25,7 +27,6 @@ const FlagSection = (props) => {
         })
       }
     </ul>
-    <img className="flag-section-icon" src={`./${icon}`} />
   </div>;
 }
 
@@ -107,11 +108,12 @@ const LeftSideView = () => {
             <ExpandableText text={summary} />
           </div>
           <div className="margin-bottom-15" />
-          <FlagSection items={flags.data["Red flags"].map(data =>data.flag)} borderColor='#FF5A79' header='Red Flags' icon='red-flag.png' />
+          <p></p>
+
+          <FlagSection items={flags.data["Red flags"].map(data =>data.flag)} header='❗   Unfavourable Terms' additionalText="These terms are unfavourable to you or uncommon. You should be aware of them and should try to negotiate them if you can." />
           <div className="margin-bottom-15" />
-          <FlagSection items={flags.data["Orange flags"].map(data =>data.flag)} borderColor='#FFBD5A' header='Yellow Flags' icon='yellow-flag.png' />
-          <div className="margin-bottom-15" />
-          <FlagSection items={flags.data["Green flags"].map(data =>data.flag)} borderColor='#70D77A' header='Green Flags' icon='green-flag.png' />
+          <FlagSection items={flags.data["Orange flags"].map(data =>data.flag)} borderColor='#FFBD5A' header='⚠️   Heads Up' additionalText="These are standard terms, but they create oblications you should be aware of." />
+          <FlagSection items={flags.data["Green flags"].map(data =>data.flag)} borderColor='#70D77A' header='✔️   Great News' additionalText="The contract contains some terms that are favourable to you: " />
           <div className="margin-bottom-15" />
           <h3 className="margin-top-15">
             This is our advice for you
