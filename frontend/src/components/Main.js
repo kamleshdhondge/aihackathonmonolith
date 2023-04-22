@@ -10,6 +10,7 @@ import {
   ListItemIcon,
   ListItemText,
   Button,
+  Link,
 } from "@mui/material";
 import { FiberManualRecord } from "@mui/icons-material";
 
@@ -115,37 +116,31 @@ const LeftSideView = () => {
           <div style={{ margin: 20 }}>
             <Divider />
           </div>
-          <Card variant="outlined" style={{ borderColor: "red" }}>
+          <Card variant="outlined" style={{ borderColor: "red",marginTop: 20,padding: 20  }}>
             <Typography variant="h4" gutterBottom>
               Red Flags
             </Typography>
             <div style={{ margin: 20 }}>
               <RedFlags />
-              <div style={{ margin: 20 }}>
-                <Divider />
-              </div>
+            
             </div>
           </Card>
-          <Card variant="outlined" style={{ borderColor: "yellow" }}>
+          <Card variant="outlined" style={{ borderColor: "yellow",marginTop: 20,padding: 20  }}>
             <Typography variant="h4" gutterBottom>
               Yellow Flags
             </Typography>
             <div style={{ margin: 20 }}>
               <YellowFlag />
-              <div style={{ margin: 20 }}>
-                <Divider />
-              </div>
+             
             </div>
           </Card>
-          <Card variant="outlined" style={{ borderColor: "green" }}>
+          <Card variant="outlined" style={{ borderColor: "green", marginTop: 20, padding: 20  }}>
             <Typography variant="h4" gutterBottom>
               Green Flags
             </Typography>
             <div style={{ margin: 20 }}>
               <GreenFlag />
-              <div style={{ margin: 20 }}>
-                <Divider />
-              </div>
+              
             </div>
           </Card>
           <div style={{ margin: 20 }}>
@@ -163,10 +158,23 @@ const LeftSideView = () => {
             adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet,
             consectetur adipiscing elit, sed do eiusmod
           </Typography>
-          <Button variant="contained">Get a verified Review</Button>
-          <Link href="#" underline="none">
-            {"Make a negotiation offer for me"}
-          </Link>
+          <div style={{margin:20}} />
+          <Grid
+            container
+            direction="column"
+            justifyContent="center"
+            alignItems="center"
+            spacing={4}
+          >
+            <Grid item>
+              <Button variant="contained">Get a verified Review</Button>
+            </Grid>
+            <Grid item>
+              <Link href="#" underline="none">
+                {"Make a negotiation offer for me"}
+              </Link>
+            </Grid>
+          </Grid>
         </div>
       </Card>
       {/* <Grid
