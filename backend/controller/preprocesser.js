@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 export function getSections(filePath) {
   // Read file contents synchronously
