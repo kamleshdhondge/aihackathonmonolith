@@ -79,7 +79,7 @@ function ExpandableText({ text }) {
 }
 
 const LeftSideView = () => {
-  const [summary, setSummary] =  useState(" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed d eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedconsectetur adipiscing elit, sed do eiusmod");
+  const [summary, setSummary] =  useState(["",""]);
   const [flags, setFlags] =  useState({data:{
     "Green flags":[1],
     "Orange flags" : [1],
@@ -125,7 +125,8 @@ const LeftSideView = () => {
             Contract Summary  
           </h3>
           <div className="margin-bottom-15" >
-            <ExpandableText text={summary} />
+            {summary.map(text => (<ExpandableText text={text} />))}
+            
           </div>
           <div className="margin-bottom-15" />
           <p></p>
