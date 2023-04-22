@@ -10,17 +10,23 @@ export async function summarize(text) {
 
   const sections = getSections(text);
   const summaries = await Promise.all(sections.map(async (section) => {
-    const prompt = "you are a contract assistant that uses this section to answer questions:" + section + "\nCreate a summary of this text, which is a portion of a contract. The summary should include the details of the rental property, the duration of the lease, the rental amount and payment terms, security deposit, maintenance and repair responsibilities, restrictions on use if available. The summary should not exceed 300 houndred things .If you are unable to summarize or all the content is generic answer 'Nothing'."
+    const prompt = "Use this section to answer questions:" + section + "\nQuestion: Create a summary of this text, which is a portion of a contract. The summary should include the details of the rental property, the duration of the lease, the rental amount and payment terms, security deposit, maintenance and repair responsibilities, restrictions on use if available. The summary should not exceed 300 hundred things .If you are unable to summarize or all the content is generic answer 'Nothing'. \n Answer:"
     const maxTokens = MAX_TOKENS
     const result = await completion(prompt, { temperature: 0, maxTokens })
     return result
   }));
 
   const summariesNew = summaries.join("\n")
-  return summariesNew
-  const prompt = "you are a contract assistant that uses this contract summary to answer questions: " + summariesNew + " Questions; Create a summary with the following characteristics: the summary should indicate what type of agreement it is, what the monthly rent is, what the address of the property is, when the initial term begins and ends, and the names of any key parties to the agreement"
+  const messages = [
+    {
+      role: "system",
+      content:
+        "You are a contract assistant that uses this contract summary sections to answer questions:"+summariesNew,
+    },
+    { role: "user", content: "Filter out all the non-important or generic sections." },
+  ];
   const maxTokens = 2000
-  const result = await completion(prompt, { temperature: 0, maxTokens })
+  const result = await chatCompletion(messages, { temperature: 0, maxTokens })
   return result
 }
 
