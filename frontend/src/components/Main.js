@@ -4,7 +4,13 @@ import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
-import { List, ListItem, ListItemIcon, ListItemText, Button } from "@mui/material";
+import {
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Button,
+} from "@mui/material";
 import { FiberManualRecord } from "@mui/icons-material";
 
 const RedFlags = () => {
@@ -158,7 +164,9 @@ const LeftSideView = () => {
             consectetur adipiscing elit, sed do eiusmod
           </Typography>
           <Button variant="contained">Get a verified Review</Button>
-
+          <Link href="#" underline="none">
+            {"Make a negotiation offer for me"}
+          </Link>
         </div>
       </Card>
       {/* <Grid
