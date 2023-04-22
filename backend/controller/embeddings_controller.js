@@ -4,13 +4,19 @@ import { getSections } from "./preprocesser.js";
 import { embedding } from "./openai_controller.js";
 import { text } from "../model/constants.js";
 
-let embeddings = [];
+const embeddings = [];
 
 readEmbeddings((err, arr) => {
   if (err) {
     throw err;
   }
-  embeddings = arr;
+  const sections = getSections(text);
+  arr.forEach((embedding) => {
+    embeddings.push({
+      embedding: embedding.slice(1),
+      content: sections[embedding[0]],
+    });
+  });
   console.log("Embeddings ready to use.");
 });
 
@@ -39,7 +45,10 @@ export async function saveEmbeddings(take, callback) {
   }
 
   const embeddings = await Promise.all(
-    sectionsToProcess.map(async (section) => await embedding(section))
+    sectionsToProcess.map(async (section, index) => {
+      const embed = await embedding(section);
+      return [index].concat(embed);
+    })
   );
 
   const csvContent = arrayToCSV(embeddings);
@@ -57,4 +66,26 @@ function arrayToCSV(arr) {
   });
 
   return csvContent;
+}
+
+export function cosineSimilarity(vectorA, vectorB) {
+  // Calculate the dot product of the two vectors
+  let dotProduct = 0;
+  for (let i = 0; i < vectorA.length; i++) {
+    dotProduct += vectorA[i] * vectorB[i];
+  }
+
+  // Calculate the magnitude (length) of each vector
+  let magnitudeA = 0;
+  let magnitudeB = 0;
+  for (let i = 0; i < vectorA.length; i++) {
+    magnitudeA += vectorA[i] ** 2;
+    magnitudeB += vectorB[i] ** 2;
+  }
+  magnitudeA = Math.sqrt(magnitudeA);
+  magnitudeB = Math.sqrt(magnitudeB);
+
+  // Calculate the cosine similarity
+  const similarity = dotProduct / (magnitudeA * magnitudeB);
+  return similarity;
 }

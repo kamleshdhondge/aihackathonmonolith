@@ -77,3 +77,20 @@
     padding-top: 20px;
     text-decoration: underline !important;
 }
+
+@media only screen and (max-width: 769px) {
+    .report-container {
+        width: 100% !important;
+        height: 100vh;
+    }
+    .thirty-percent-column {
+        display: none;
+    }
+    .main-container {
+        flex-direction: column-reverse;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+
+}
