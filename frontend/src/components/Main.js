@@ -244,7 +244,7 @@ const RightSideView = ({ open, setOpen }) => {
 };
 
 export const Main = (props) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   return (
     <div>
       <div>
