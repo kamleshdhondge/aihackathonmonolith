@@ -27,5 +27,3 @@ export function getSections(text) {
     return sections;
   }).reduce((acc, curr) => acc.concat(curr), []).filter((section)=>section!=="");
 }
-
-console.log(getSections(text)[4]);
