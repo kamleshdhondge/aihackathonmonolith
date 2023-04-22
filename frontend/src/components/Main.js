@@ -1,94 +1,32 @@
 import "./Main.css";
 import { Chat } from "./Chat";
-import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
 import {
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Button,
   Link,
 } from "@mui/material";
-import { FiberManualRecord } from "@mui/icons-material";
 import { Header } from "./Header";
 
-const RedFlags = () => {
-  return (
-    <List>
-      <ListItem>
-        <ListItemIcon>
-          <FiberManualRecord />
-        </ListItemIcon>
-        <ListItemText primary="List item 1" />
-      </ListItem>
-      <ListItem>
-        <ListItemIcon>
-          <FiberManualRecord />
-        </ListItemIcon>
-        <ListItemText primary="List item 2" />
-      </ListItem>
-      <ListItem>
-        <ListItemIcon>
-          <FiberManualRecord />
-        </ListItemIcon>
-        <ListItemText primary="List item 3" />
-      </ListItem>
-    </List>
-  );
-};
+const VerifyButton = () => {
+  return <button className="verify-button">Get a verified review</button>
+}
 
-const YellowFlag = () => {
-  return (
-    <List>
-      <ListItem>
-        <ListItemIcon>
-          <FiberManualRecord />
-        </ListItemIcon>
-        <ListItemText primary="List item 1" />
-      </ListItem>
-      <ListItem>
-        <ListItemIcon>
-          <FiberManualRecord />
-        </ListItemIcon>
-        <ListItemText primary="List item 2" />
-      </ListItem>
-      <ListItem>
-        <ListItemIcon>
-          <FiberManualRecord />
-        </ListItemIcon>
-        <ListItemText primary="List item 3" />
-      </ListItem>
-    </List>
-  );
-};
+const FlagSection = (props) => {
+  const {header, items, borderColor, icon} = props;
 
-const GreenFlag = () => {
-  return (
-    <List>
-      <ListItem>
-        <ListItemIcon>
-          <FiberManualRecord />
-        </ListItemIcon>
-        <ListItemText primary="List item 1" />
-      </ListItem>
-      <ListItem>
-        <ListItemIcon>
-          <FiberManualRecord />
-        </ListItemIcon>
-        <ListItemText primary="List item 2" />
-      </ListItem>
-      <ListItem>
-        <ListItemIcon>
-          <FiberManualRecord />
-        </ListItemIcon>
-        <ListItemText primary="List item 3" />
-      </ListItem>
-    </List>
-  );
-};
+  return <div className="flag-section-container" style={{padding: '20px', borderRadius: '4px', border: `1px solid ${borderColor}`}}>
+    <h3>{header}</h3>
+    <br />
+    <ul className="flag-section-list">
+      {
+        items.map((item, index) => {
+          return <li key={index}>{item}</li>
+        })
+      }
+    </ul>
+    <img className="flag-section-icon" src={`./${icon}`} />
+  </div>;
+}
+
 const LeftSideView = () => {
   return (
     <div className="report-container">
@@ -101,7 +39,7 @@ const LeftSideView = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod
           </div>
-          <Divider />
+          <div className="margin-bottom-15" />
           <h3 className="margin-top-15">
             Contract Summary
           </h3>
@@ -114,34 +52,13 @@ const LeftSideView = () => {
             adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet,
             consectetur adipiscing elit, sed do eiusmod
           </div>
-          <Divider />
-          <Card variant="outlined" style={{ borderColor: "red",marginTop: 20,padding: 20  }}>
-            <Typography variant="h4" gutterBottom>
-              Red Flags
-            </Typography>
-            <div style={{ margin: 20 }}>
-              <RedFlags />
-            </div>
-          </Card>
-          <Card variant="outlined" style={{ borderColor: "yellow",marginTop: 20,padding: 20  }}>
-            <Typography variant="h4" gutterBottom>
-              Yellow Flags
-            </Typography>
-            <div style={{ margin: 20 }}>
-              <YellowFlag />
-            </div>
-          </Card>
-          <Card variant="outlined" style={{ borderColor: "green", marginTop: 20, padding: 20  }}>
-            <Typography variant="h4" gutterBottom>
-              Green Flags
-            </Typography>
-            <div style={{ margin: 20 }}>
-              <GreenFlag />
-            </div>
-          </Card>
-          <div style={{ margin: 20 }}>
-            <Divider />
-          </div>
+          <div className="margin-bottom-15" />
+          <FlagSection items={['1', '2', '3']} borderColor='#FF5A79' header='Red Flags' icon='red-flag.png' />
+          <div className="margin-bottom-15" />
+          <FlagSection items={['1', '2', '3']} borderColor='#FFBD5A' header='Yellow Flags' icon='yellow-flag.png' />
+          <div className="margin-bottom-15" />
+          <FlagSection items={['1', '2', '3']} borderColor='#70D77A' header='Green Flags' icon='green-flag.png' />
+          <div className="margin-bottom-15" />
           <h3 className="margin-top-15">
             This is our advice for you
           </h3>
@@ -154,25 +71,15 @@ const LeftSideView = () => {
             adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet,
             consectetur adipiscing elit, sed do eiusmod
           </div>
-          <div style={{margin:20}} />
-          <Grid
-            container
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-            spacing={4}
-          >
-            <Grid item>
-              <Button variant="contained">Get a verified Review</Button>
-            </Grid>
-            <Grid item>
-              <Link href="#" underline="none">
-                {"Make a negotiation offer for me"}
-              </Link>
-            </Grid>
-          </Grid>
+          <div className="margin-top-15" />
         </div>
       </Card>
+      <div className="button-parent">
+          <VerifyButton />
+      </div>
+      <div className="button-parent">
+        <Link className="negotiation-link" href="#" underline="none">Make a negotiation offer for me</Link>
+      </div>
     </div>
   );
 };
@@ -194,6 +101,5 @@ export const Main = (props) => {
         <RightSideView />
         </div>
     </div>
-    
   );
 };
