@@ -12,7 +12,7 @@ export const useChatQuery = async () => {
           message: sendQueryMessage
         })
         .then(response => {
-          setChatBotmessages([...chatBotmessages, <ChatResponse message={response.data.message} />]);
+          setChatBotmessages([<ChatResponse message={response.data.message} />, ...chatBotmessages]);
         })
         .catch(() => {});
         

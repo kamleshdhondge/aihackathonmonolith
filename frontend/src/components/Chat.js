@@ -6,7 +6,7 @@ import {useChatQuery} from '../hooks/useChatQuery'
 
 const ChatBox = () => {
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div className='chat-box-root-container'>
       <Messages />
       <SubmitMessage />
     </div>
@@ -14,18 +14,17 @@ const ChatBox = () => {
 };
 
 const HelloMessage = () => {
-  return <div>
-    <div>Hello John!</div>
+  return <div className='hello-message'>
+    <div className='hello-section-user-name'><strong>Hello John!</strong></div>
     <div>I’m your lawyer assistant, how can I help?</div>
   </div>
 }
 
-const Messages = (props) => {
+const Messages = () => {
   const {chatBotmessages, setChatBotmessages} = useContext(AppContext)
 
   useEffect(() => {
-    setChatBotmessages([...chatBotmessages, <HelloMessage />]);
-    console.log('Hello');
+    setChatBotmessages([<HelloMessage />, ...chatBotmessages]);
   }, []);
 
   return <div className="messages-box">
@@ -33,14 +32,18 @@ const Messages = (props) => {
   </div>;
 }
 
-const SubmitMessage = (props) => {
+const SubmitMessage = () => {
   const {chatBotmessages, setChatBotmessages, setSendQuery, setSendQueryMessage} = useContext(AppContext);
   const [message, setMessage] = useState('');
 
   useChatQuery();
 
   const onSearch = () => {
-    setChatBotmessages([...chatBotmessages, <ChatQuery query={message} />]);
+    if(!message) {
+      return;
+    }
+
+    setChatBotmessages([<ChatQuery query={message} />, ...chatBotmessages]);
     setSendQuery(true);
     setSendQueryMessage(message);
     setMessage('');
@@ -64,18 +67,21 @@ const ChatQuery = (props) => {
   const {query} = props;
 
   return <div className='chat-query-container'>
-    <div className='chat-query-letter'>L</div> 
-    <div className='chat-query-message'>{query}</div>
-  </div>;
+      <div className='chat-query-letter'>L</div> 
+      <div className='chat-query-message'>{query}</div>
+    </div>;
 }
 
 export const ChatResponse = (props) => {
   const {message} = props;
-  return <div className='chat-response-container'><div className='chat-response'>{message}</div></div>
+
+  return <div className='message-block'>
+    <div className='chat-response-container'><div className='chat-response'>{message}</div></div>
+  </div>
 }
 
-export const Chat = (props) => {
+export const Chat = () => {
     return <div className='chat-box'>
-       <ChatBox />
+        <ChatBox />
     </div>
 }
