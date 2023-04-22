@@ -120,9 +120,12 @@
     right: 57px;
     top: 23px;
     box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
 }
 
-.download-link-icon {
-    padding-top: 10px;
-
+.download-image {
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
 }
