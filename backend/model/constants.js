@@ -7,12 +7,7 @@ export const flags={
     ],
     "orange_flags": [
       "The tenant cannot change locks or keys without permission",
-      "The tenant must clean windows, replace broken glass and light bulbs, unblock and keep all gutters, sewers, drains, toilet bowls, cisterns, basins, baths, showers, water pipes and ducts free from blockages, and report faults",
-      "The tenant cannot store any items on balconies or outdoor spaces",
-      "The tenant must vacate the premises, return it in the same condition as the start date, pay for any damages or repairs caused by them, pay for any outstanding bills, return any rented equipment, remove personal belongings and rubbish, and return the keys",
-     "The landlord must inform the tenant within 10 working days if any deductions are to be made from the deposit",
-      "If the tenant disputes any deductions, they must inform the landlord within 20 working days",
-      "If the amount to be taken from the deposit is greater than £5,000 and a dispute arises, formal arbitration must be used",
+        "If the tenant disputes any deductions, they must inform the landlord within 20 working days",
       "If the monies due are more than the deposit held, the tenant must pay the excess within 14 days of written demand",
       "The tenant must give at least two months' notice in writing to end the tenancy"
     ],

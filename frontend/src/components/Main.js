@@ -172,7 +172,7 @@ const LeftSideView = ({ open, setOpen }) => {
                 }}
               />
             }
-            header="Unfavourable Terms"
+            header="Red flags"
             additionalText="These terms are unfavourable to you or uncommon. You should be aware of them and should try to negotiate them if you can."
           />
           <div className="margin-bottom-15" />
