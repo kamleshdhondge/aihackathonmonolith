@@ -1,10 +1,12 @@
 import { sizing } from "@mui/system";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import {
   Grid, Typography,
 
 } from "@mui/material";
+import {AppContext} from '../state/AppContext';
+
 const baseStyle = {
   "box-sizing": "border-box",
   width: "104%",
@@ -43,8 +45,10 @@ const rejectStyle = {
 
 function DropzoneComponent(props) {
   const [files, setFiles] = useState([]);
+  const {setActivePage} = useContext(AppContext);
 
   const onDrop = useCallback((acceptedFiles) => {
+    setActivePage('application');
     setFiles(
       acceptedFiles.map((file) =>
         Object.assign(file, {
