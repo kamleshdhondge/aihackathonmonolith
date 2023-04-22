@@ -7,8 +7,9 @@ import {
 } from "@mui/material";
 const baseStyle = {
   "box-sizing": "border-box",
-  width: "419px",
-  height: "363px",
+  width: "104%",
+  height: "200px",
+  marginTop: '20px',
   background: "#F8F8F8",
   border: "1px dashed #1A374D",
   "border-radius": 4,
@@ -97,8 +98,11 @@ function DropzoneComponent(props) {
           justifyContent="center"
           alignItems="center"
         >
-          <Grid item style={{marginTop: "40%"}}>
-            <Typography variant="h6" style={{color: "black"}}>Drag your contract here</Typography>
+          <Grid item style={{marginTop: "13%", display: 'flex', justifyContent: 'center', flexDirection: 'row'}}>
+            <h4>Drag your contract here</h4>
+          </Grid>
+          <Grid item style={{marginTop: "2%", display: 'flex', justifyContent: 'center'}}>
+            <img src="./arrow-up.png" style={{width: '35px', height: '35px'}}/>
           </Grid>
         </Grid>
       </div>

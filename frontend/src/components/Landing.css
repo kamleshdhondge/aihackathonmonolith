@@ -7,6 +7,44 @@
     display: flex;
 }
 
-.column {
+.landing-page-column {
     width: 50%;
+}
+
+.dark-background {
+    background-color: #1A374D;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;  
+}
+
+.upload-contract-form {
+    padding: 100px 130px;
+}
+
+.contract-url-input {
+    border: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #F8F8F8;
+    margin-top: 20px;
+    padding: 0 10px;
+    border-radius: 4px;
+}
+
+.contract-url-input:focus {
+    outline: none;
+}
+
+.hero-image {
+    margin-top: 15%;
+    height: 400px;
+}
+
+.qr-code-section {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;  
 }
