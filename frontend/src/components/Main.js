@@ -29,6 +29,35 @@ const FlagSection = (props) => {
   </div>;
 }
 
+function ExpandableText({ text }) {
+  const [expanded, setExpanded] = useState(false);
+  const MAX_LENGTH = 255;
+
+  if (text.length <= MAX_LENGTH) {
+    return <div>{text}</div>;
+  }
+
+  const truncatedText = text.slice(0, MAX_LENGTH);
+  const remainingText = text.slice(MAX_LENGTH);
+
+  const handleExpandClick = () => {
+    setExpanded(true);
+  };
+
+  return (
+    <div>
+      {truncatedText} {' '}
+      {!expanded && (
+        <a href="#" onClick={handleExpandClick}>
+         See more
+        </a>
+      )}
+      {expanded && remainingText}
+    </div>
+  );
+}
+
+
 const LeftSideView = () => {
   const [summary, setSummary] =  useState(" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed d eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedconsectetur adipiscing elit, sed do eiusmod");
   const [flags, setFlags] =  useState({data:{
@@ -65,7 +94,7 @@ const LeftSideView = () => {
             Contract Summary
           </h3>
           <div className="margin-bottom-15" >
-          {summary}
+            <ExpandableText text={summary} />
           </div>
           <div className="margin-bottom-15" />
           <FlagSection items={flags.data["Red flags"].map(data =>data.flag)} borderColor='#FF5A79' header='Red Flags' icon='red-flag.png' />
