@@ -5,6 +5,7 @@ import {
   Link,
 } from "@mui/material";
 import { Header } from "./Header";
+import { useEffect } from "react";
 
 const VerifyButton = () => {
   return <button className="verify-button">Get a verified review</button>
@@ -28,6 +29,10 @@ const FlagSection = (props) => {
 }
 
 const LeftSideView = () => {
+  const [summary, setSummary] =  React.useState(" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed d eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedconsectetur adipiscing elit, sed do eiusmod");
+ useEffect(() => {
+  
+ },[])
   return (
     <div className="report-container">
       <Card>
@@ -40,17 +45,12 @@ const LeftSideView = () => {
             eiusmod
           </div>
           <div className="margin-bottom-15" />
+
           <h3 className="margin-top-15">
             Contract Summary
           </h3>
           <div className="margin-bottom-15">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-            do eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod
+          {summary}
           </div>
           <div className="margin-bottom-15" />
           <FlagSection items={['1', '2', '3']} borderColor='#FF5A79' header='Red Flags' icon='red-flag.png' />
