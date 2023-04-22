@@ -44,6 +44,11 @@ function ExpandableText({ text }) {
     setExpanded(true);
   };
 
+  const handleShrinkClick = () => {
+    setExpanded(false);
+  };
+
+
   return (
     <div>
       {truncatedText} {' '}
@@ -53,6 +58,9 @@ function ExpandableText({ text }) {
         </a>
       )}
       {expanded && remainingText}
+      {expanded && <a href="#" onClick={handleShrinkClick}>
+        {' '} See less
+        </a>}
     </div>
   );
 }
