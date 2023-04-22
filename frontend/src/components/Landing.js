@@ -41,10 +41,12 @@ export const Landing = (props) => {
       alignItems="center"
     >
       <Grid item style={{ width: "inherit" }}>
-        <div style={{ background: "#1A374D" }}></div>
+        <div style={{ background: "#1A374D" }}>
+        <LeftSideView />
+        </div>
       </Grid>
       <Grid item style={{ width: "inherit" }}>
-
+      <RightSideView />
 
       </Grid>
     </Grid>
