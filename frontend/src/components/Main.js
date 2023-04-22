@@ -1,17 +1,165 @@
-import './Main.css'
-import {Chat} from './Chat';
+import "./Main.css";
+import { Chat } from "./Chat";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
-import Typography from '@mui/material/Typography';
+import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
+import { List, ListItem, ListItemIcon, ListItemText, Button } from "@mui/material";
+import { FiberManualRecord } from "@mui/icons-material";
+
+const RedFlags = () => {
+  return (
+    <List>
+      <ListItem>
+        <ListItemIcon>
+          <FiberManualRecord />
+        </ListItemIcon>
+        <ListItemText primary="List item 1" />
+      </ListItem>
+      <ListItem>
+        <ListItemIcon>
+          <FiberManualRecord />
+        </ListItemIcon>
+        <ListItemText primary="List item 2" />
+      </ListItem>
+      <ListItem>
+        <ListItemIcon>
+          <FiberManualRecord />
+        </ListItemIcon>
+        <ListItemText primary="List item 3" />
+      </ListItem>
+    </List>
+  );
+};
+
+const YellowFlag = () => {
+  return (
+    <List>
+      <ListItem>
+        <ListItemIcon>
+          <FiberManualRecord />
+        </ListItemIcon>
+        <ListItemText primary="List item 1" />
+      </ListItem>
+      <ListItem>
+        <ListItemIcon>
+          <FiberManualRecord />
+        </ListItemIcon>
+        <ListItemText primary="List item 2" />
+      </ListItem>
+      <ListItem>
+        <ListItemIcon>
+          <FiberManualRecord />
+        </ListItemIcon>
+        <ListItemText primary="List item 3" />
+      </ListItem>
+    </List>
+  );
+};
+
+const GreenFlag = () => {
+  return (
+    <List>
+      <ListItem>
+        <ListItemIcon>
+          <FiberManualRecord />
+        </ListItemIcon>
+        <ListItemText primary="List item 1" />
+      </ListItem>
+      <ListItem>
+        <ListItemIcon>
+          <FiberManualRecord />
+        </ListItemIcon>
+        <ListItemText primary="List item 2" />
+      </ListItem>
+      <ListItem>
+        <ListItemIcon>
+          <FiberManualRecord />
+        </ListItemIcon>
+        <ListItemText primary="List item 3" />
+      </ListItem>
+    </List>
+  );
+};
 const LeftSideView = () => {
   return (
     <>
-      <Card sx={{ minWidth: '100vh', minHeight: 600 }}>
-      <div style={{ margin:20 }}>
-       <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Type of contract
-        </Typography>
-      </div>
+      <Card sx={{ minWidth: "100vh", minHeight: 600 }}>
+        <div style={{ margin: 40 }}>
+          <Typography variant="h4" gutterBottom>
+            Type of contract
+          </Typography>
+          <Typography variant="body1" gutterBottom>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod
+          </Typography>
+          <Divider />
+          <Typography variant="h4" gutterBottom>
+            Contract Summary
+          </Typography>
+          <Typography variant="body1" gutterBottom>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+            do eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit, sed do eiusmod
+          </Typography>
+          <div style={{ margin: 20 }}>
+            <Divider />
+          </div>
+          <Card variant="outlined" style={{ borderColor: "red" }}>
+            <Typography variant="h4" gutterBottom>
+              Red Flags
+            </Typography>
+            <div style={{ margin: 20 }}>
+              <RedFlags />
+              <div style={{ margin: 20 }}>
+                <Divider />
+              </div>
+            </div>
+          </Card>
+          <Card variant="outlined" style={{ borderColor: "yellow" }}>
+            <Typography variant="h4" gutterBottom>
+              Yellow Flags
+            </Typography>
+            <div style={{ margin: 20 }}>
+              <YellowFlag />
+              <div style={{ margin: 20 }}>
+                <Divider />
+              </div>
+            </div>
+          </Card>
+          <Card variant="outlined" style={{ borderColor: "green" }}>
+            <Typography variant="h4" gutterBottom>
+              Green Flags
+            </Typography>
+            <div style={{ margin: 20 }}>
+              <GreenFlag />
+              <div style={{ margin: 20 }}>
+                <Divider />
+              </div>
+            </div>
+          </Card>
+          <div style={{ margin: 20 }}>
+            <Divider />
+          </div>
+          <Typography variant="h4" gutterBottom>
+            This is our advice for you
+          </Typography>
+          <Typography variant="body1" gutterBottom>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+            do eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit, sed do eiusmod
+          </Typography>
+          <Button variant="contained">Get a verified Review</Button>
+
+        </div>
       </Card>
       {/* <Grid
         container
@@ -37,10 +185,12 @@ const LeftSideView = () => {
 };
 
 const RightSideView = () => {
-   return <div className='column'>
-       <Chat />
-   </div>
-}
+  return (
+    <div className="column">
+      <Chat />
+    </div>
+  );
+};
 
 export const Main = (props) => {
   return (
