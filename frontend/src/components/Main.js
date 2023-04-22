@@ -64,7 +64,7 @@ const LeftSideView = () => {
           <h3 className="margin-top-15">
             Contract Summary
           </h3>
-          <div className="margin-bottom-15">
+          <div className="margin-bottom-15" >
           {summary}
           </div>
           <div className="margin-bottom-15" />
