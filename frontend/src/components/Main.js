@@ -57,7 +57,6 @@ function ExpandableText({ text }) {
   );
 }
 
-
 const LeftSideView = () => {
   const [summary, setSummary] =  useState(" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed d eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedconsectetur adipiscing elit, sed do eiusmod");
   const [flags, setFlags] =  useState({data:{
@@ -86,8 +85,19 @@ const LeftSideView = () => {
   return (
    
     <div className="report-container">
+      <div className="download-report-container">
+        <div className="relative-parent">
+          <a className="download-link" href="#" onClick={() => {
+              const printContents = document.getElementById("printable-report").innerHTML;
+              const originalContents = document.body.innerHTML;
+              document.body.innerHTML = printContents;
+              window.print();
+              document.body.innerHTML = originalContents;
+          }}>Download a PDF file </a>
+        </div>
+      </div>
       <Card>
-        <div className="report-content">
+        <div id='printable-report' className="report-content">
           <div className="margin-bottom-15" />
 
           <h3 className="margin-top-15">
