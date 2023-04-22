@@ -112,7 +112,7 @@ const LeftSideView = ({ open, setOpen }) => {
         let advice = await axios("http://localhost:3003/document/doc1/advice");
         console.log("advice: ",advice);
         setAdvice(advice.data);
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 4000));
         setOpen(false);
       }
     );
