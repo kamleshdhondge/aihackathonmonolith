@@ -20,8 +20,27 @@ const RightSideView = () => {
 }
 
 export const Landing = (props) => {
-    return <div className='container'>
-        <LeftSideView />
-        <RightSideView />
-    </div>
+    // return <div className='container'>
+    //     <LeftSideView />
+    //     <RightSideView />
+    // </div>
+
+    return(
+        <Grid
+  container
+  direction="row"
+  justifyContent="space-between"
+  alignItems="center"
+>
+    <Grid item style={{width: "inherit"}}>
+            <div style={{background: "#1A374D"}>
+
+            </div>
+    </Grid>
+    <Grid item style={{width: "inherit"}}>
+
+    </Grid>
+    
+</Grid>
+    )
 }
