@@ -99,7 +99,7 @@ router.route("/:id/embeddings").post(async (req, res) => {
 
   const csvContent = arrayToCSV(embeddings);
 
-  fs.writeFile("output.csv", csvContent, (err) => {
+  fs.writeFile("embeddings.csv", csvContent, (err) => {
     if (err) throw err;
     res.send("CSV file saved!");
   });
