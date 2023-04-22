@@ -1,8 +1,18 @@
 import express from "express";
 import { getDocument } from "../model/documents_manager.js";
 import { summarize, getFlags } from "../controller/document_controller.js";
-import { chatCompletion, completion } from "../controller/openai_controller.js";
-import { saveEmbeddings } from "../controller/embeddings_controller.js";
+import {
+  chatCompletion,
+  completion,
+  embedding,
+  tokens,
+} from "../controller/openai_controller.js";
+import getEmbeddings, {
+  cosineSimilarity,
+  saveEmbeddings,
+} from "../controller/embeddings_controller.js";
+
+const MAX_LENGTH = 1500;
 
 const router = express.Router();
 
@@ -14,21 +24,43 @@ router
   })
   .post(async (req, res) => {
     const doc = getDocument(req.params.id);
-    const lastMessage = doc.chatHistory[doc.chatHistory.length - 1];
     const messageText = req.body.message;
-    const userMessage = {
-      id: lastMessage.id + 1,
-      send: "user",
-      message: messageText,
-    };
-    doc.chatHistory.push(userMessage);
-    const assistantMessage = {
-      id: userMessage.id + 1,
-      send: "assistant",
-      message: "Assume a new message goes here... :D",
-    };
-    doc.chatHistory.push(assistantMessage);
-    res.json(assistantMessage);
+
+    const userEmbedding = await embedding(messageText);
+    const embeddings = getEmbeddings();
+    const sortedSimilarity = embeddings.map((embedding) => {
+      return {
+        content: embedding.content,
+        similarityScore: cosineSimilarity(embedding.embedding, userEmbedding),
+      };
+    });
+    sortedSimilarity.sort((a, b) => b.similarityScore - a.similarityScore);
+    let context = "";
+    for (let i = 0; i < sortedSimilarity.length; i++) {
+      const nextLength = tokens(context) + tokens(sortedSimilarity[i].content);
+      if (nextLength > MAX_LENGTH) {
+        break;
+      }
+      context += sortedSimilarity[i].content + "\n";
+    }
+
+    const messages = [
+      {
+        role: "system",
+        content: `Use the following context to reply the user question: ${context}`,
+      },
+      {
+        role: "user",
+        content: messageText,
+      },
+    ];
+
+    console.log(messages);
+
+    const assistantMessage = await chatCompletion(messages, {
+      temperature: 0.0,
+    });
+    res.json({ id: 1, sender: "assistant", message: assistantMessage });
   });
 
 router.route("/openai").post(async (req, res) => {
