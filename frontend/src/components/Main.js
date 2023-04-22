@@ -9,6 +9,10 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import SimpleBackdrop from './Spinner.js';
 import ReportProblemSharpIcon from '@mui/icons-material/ReportProblemSharp';
+import ManageSearchSharpIcon from '@mui/icons-material/ManageSearchSharp';
+import CheckCircleSharpIcon from '@mui/icons-material/CheckCircleSharp';
+import WarningAmberSharpIcon from '@mui/icons-material/WarningAmberSharp';
+
 const VerifyButton = () => {
   return <button className="verify-button">Get a verified review</button>
 }
@@ -118,7 +122,7 @@ const LeftSideView = () => {
           <div className="margin-bottom-15" />
 
           <h3 className="margin-top-15">
-            Contract Summary
+            Contract Summary  
           </h3>
           <div className="margin-bottom-15" >
             <ExpandableText text={summary} />
@@ -126,12 +130,12 @@ const LeftSideView = () => {
           <div className="margin-bottom-15" />
           <p></p>
 
-          <FlagSection items={flags.data["Red flags"].map(data =>data.flag)} iconRight={<ReportProblemSharpIcon style={{position: "absolute", top:15 ,right: 15, color: "#ffb703"}} />} header='Unfavourable Terms' additionalText="These terms are unfavourable to you or uncommon. You should be aware of them and should try to negotiate them if you can." />
+          <FlagSection items={flags.data["Red flags"].map(data =>data.flag)} iconRight={<WarningAmberSharpIcon fontSize="large" style={{position: "absolute", top:15 ,right: 15,  color: "#e63946"}} />} header='Unfavourable Terms' additionalText="These terms are unfavourable to you or uncommon. You should be aware of them and should try to negotiate them if you can." />
           <div className="margin-bottom-15" />
-          <FlagSection items={flags.data["Orange flags"].map(data =>data.flag)} iconRight={<ReportProblemSharpIcon style={{position: "absolute", top:15 ,right: 15, color: "#ffb703"}} />} borderColor='#FFBD5A' header='Heads Up' additionalText="These are standard terms, but they create oblications you should be aware of." />
+          <FlagSection items={flags.data["Orange flags"].map(data =>data.flag)} iconRight={<ManageSearchSharpIcon fontSize="large" style={{position: "absolute", top:15 ,right: 15,  color: "#ffb703"}} />} borderColor='#FFBD5A' header='Heads Up' additionalText="These are standard terms, but they create oblications you should be aware of." />
           <div className="margin-bottom-15" />
 
-          <FlagSection items={flags.data["Green flags"].map(data =>data.flag)} borderColor='#70D77A' iconRight={<ReportProblemSharpIcon style={{position: "absolute", top:15 ,right: 15, color: "#ffb703"}} />} header='Great News' additionalText="The contract contains some terms that are favourable to you: " />
+          <FlagSection items={flags.data["Green flags"].map(data =>data.flag)} borderColor='#70D77A' iconRight={<CheckCircleSharpIcon  style={{position: "absolute", top:15 ,right: 15, color: "#0ead69"}} />} header='Great News' additionalText="The contract contains some terms that are favourable to you: " />
           <div className="margin-bottom-15" />
           <h3 className="margin-top-15">
             This is our advice for you
