@@ -107,6 +107,11 @@
     margin: 25px 5px;
 }
 
-.hello-section-bold {
+.hello-section-user-name {
     margin-bottom: 3px;
+}
+
+.chat-box-root-container {
+    display: flex;
+    flex-direction: column;
 }
