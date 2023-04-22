@@ -6,7 +6,8 @@ import {
 } from "@mui/material";
 import { Header } from "./Header";
 import { useEffect, useState } from "react";
-
+import axios from 'axios';
+import SimpleBackdrop from './Spinner.js';
 const VerifyButton = () => {
   return <button className="verify-button">Get a verified review</button>
 }
@@ -30,10 +31,26 @@ const FlagSection = (props) => {
 
 const LeftSideView = () => {
   const [summary, setSummary] =  useState(" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed d eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedconsectetur adipiscing elit, sed do eiusmod");
- useEffect(() => {
-  
- },[])
+  const [flags, setFlags] =  useState({});
+
+  const [open, setOpen] = useState(true);
+  useEffect( () => {
+  let data =  axios('http://localhost:3003/document/doc1/summary').then(async(data)=>{
+    console.log(data.data.summarize);
+    setSummary(data.data.summarize);
+    let flags = await axios('http://localhost:3003/document/doc1/flags');
+    console.log(flags);
+    setFlags(flags);
+    setOpen(false);
+  });
+ },[]);
+
+
+ if (open){
+  return < SimpleBackdrop open={open} setOpen={setOpen}/>
+ }
   return (
+   
     <div className="report-container">
       <Card>
         <div className="report-content">
