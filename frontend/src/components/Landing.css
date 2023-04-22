@@ -5,6 +5,8 @@
 
 .container {
     display: flex;
+    font-family: "Lexend";
+    font-weight: 575;
 }
 
 .landing-page-column {
