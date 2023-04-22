@@ -12,7 +12,8 @@ import getEmbeddings, {
   saveEmbeddings,
 } from "../controller/embeddings_controller.js";
 
-const MAX_LENGTH = 1500;
+const MAX_LENGTH = 3000;
+const MAX_TOKENS = 4000;
 
 const router = express.Router();
 
@@ -56,6 +57,9 @@ router
 
     const assistantMessage = await chatCompletion(messages, {
       temperature: 0.0,
+      maxTokens:
+        MAX_TOKENS -
+        messages.reduce((acc, cur) => acc + tokens(cur.content), 0),
     });
     res.json({ id: 1, sender: "assistant", message: assistantMessage });
   });
