@@ -1,10 +1,7 @@
-import fs from 'fs';
+import {text} from "../model/constants.js";
 
-export function getSections(filePath) {
-  // Read file contents synchronously
-  const fileContent = fs.readFileSync(filePath, 'utf-8');
-
+export function getSections(text) {
   // Split contents by '#'
-  const sections = fileContent.split('#');
+  const sections = text.split('###');
   return sections;
 }
