@@ -1,4 +1,4 @@
-import { flags, summary, SECTION_SUMMARY_PROMPT,MAIN_SUMMARY_PROMPT } from "../model/constants.js";
+import { flags, summary, SECTION_SUMMARY_PROMPT,MAIN_SUMMARY_PROMPT, FLAGS_PROMPT, ADVICE_PROMPT } from "../model/constants.js";
 import { config } from "dotenv";
 import { getSections } from "./preprocesser.js";
 import { chatCompletion, completion, tokens } from "./openai_controller.js";
@@ -6,7 +6,7 @@ import { chatCompletion, completion, tokens } from "./openai_controller.js";
 const MAX_TOKENS = 2000;
 config();
 
-export async function summarize(text) {
+export async function summarizeSections(text){
   const sections = getSections(text);
   const summaries = await Promise.all(sections.map(async (section) => {
     const prompt = "Use this contract section to answer questions:" + section+SECTION_SUMMARY_PROMPT;
@@ -14,7 +14,10 @@ export async function summarize(text) {
     const result = await completion(prompt, { temperature: 0, maxTokens})
     return result
   }));
-
+  return summaries;
+}
+export async function summarize(text) {
+  const summaries=await summarizeSections(text);
   const summariesNew = summaries.join("\n");
   const messages = [
     {
@@ -30,24 +33,35 @@ export async function summarize(text) {
 }
 
 export async function getFlags(text) {
-  const sections = getSections(text);
-  const summaries = await Promise.all(sections.map(async (section) => {
-    const prompt = "Use this section to answer questions:" + section + "\nQuestion: Create a summary of this text, which is a portion of a contract. The summary should include the details of the rental property, the duration of the lease, the rental amount and payment terms, security deposit, maintenance and repair responsibilities, restrictions on use if available. The summary should not exceed 300 hundred things .If you are unable to summarize or all the content is generic answer 'Nothing'. \n Answer:"
-    const maxTokens = MAX_TOKENS
-    const result = await completion(prompt, { temperature: 0, maxTokens, frequencyPenalty:2})
-    return result
-  }));
-
+  return flags;
+  /* const summaries=await summarizeSections(text);
   const summariesNew = summaries.join("\n");
   const messages = [
     {
       role: "system",
       content:
-        "You are a contract assistant that uses this contract summary sections to answer questions: "+summariesNew,
+        "You are a contract assistant that uses this contract summary to answer questions: "+summariesNew,
     },
-    { role: "user", content: "Filter out all the non-important or generic sections." },
+    { role: "user", content: FLAGS_PROMPT },
   ];
   const maxTokens = 2000
-  const result = await chatCompletion(messages, { temperature: 0, maxTokens, frequencyPenalty:1})
-  return result
+  const result = await chatCompletion(messages, {temperature: 0, maxTokens})
+  console.log(result);
+  return JSON.parse(result); */
+}
+
+export async function getAdvice(text) {
+  return advice;
+  /* const flags=await getFlags(text);
+  const messages = [
+    {
+      role: "system",
+      content:
+        "This is a list of red and orange flags in a contract:  "+flags,
+    },
+    { role: "user", content: ADVICE_PROMPT },
+  ];
+  const maxTokens = 2000
+  const result = await chatCompletion(messages, {temperature: 0, maxTokens, presencePenalty:-1 ,frequencyPenalty:2})
+  return result */
 }

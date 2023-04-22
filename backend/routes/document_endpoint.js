@@ -1,6 +1,6 @@
 import express from "express";
 import { getDocument } from "../model/documents_manager.js";
-import { summarize, getFlags } from "../controller/document_controller.js";
+import { summarize, getFlags, getAdvice } from "../controller/document_controller.js";
 import {
   chatCompletion,
   completion,
@@ -92,7 +92,12 @@ router.route("/:id/summary").get(async (req, res) => {
 
 router.route("/:id/flags").get(async (req, res) => {
   let text = getDocument(req.params.id).text;
-  res.json(getFlags(text));
+  res.json(await getFlags(text));
+});
+
+router.route("/:id/advice").get(async (req, res) => {
+  let text = getDocument(req.params.id).text;
+  res.json(await getAdvice(text));
 });
 
 router.route("/:id/embeddings").post(async (req, res) => {

@@ -44,8 +44,51 @@ export const flags={
       "The tenant may relocate to another UNCLE building, subject to availability and compliance with the terms of the agreement"
     ]
   }
+export const advice=`Sure, here are some suggestions on how to negotiate more favorable terms for the tenant:
+
+1. Red Flag: The tenant is responsible for any damage caused by fixing items to walls.
+
+Suggested Change: The landlord should be responsible for any damage caused by fixing items to walls, as long as the tenant obtains prior written permission.
+
+Justification: It is reasonable for tenants to want to personalize their living space by hanging pictures or shelves. However, they should not be held responsible for any damage caused by these actions if they have obtained permission from the landlord and followed any guidelines provided.
+
+Negotiation Tip: Offer to provide a detailed plan of where and how you plan to hang items, and ask for written permission from the landlord. This will show that you are responsible and willing to work with the landlord to ensure the property is well-maintained.
+
+2. Red Flag: The tenant cannot make claims for compensation for various issues such as broken appliances or inconvenience caused by building maintenance.
+
+Suggested Change: The tenant should be able to make claims for compensation for issues that are not their fault, such as broken appliances or inconvenience caused by building maintenance.
+
+Justification: It is unfair for tenants to be held responsible for issues that are not their fault, especially if they have paid rent on time and followed all the rules.
+
+Negotiation Tip: Ask the landlord to clarify what they mean by "various issues" and negotiate specific exceptions to this clause. For example, you could agree that the tenant can make claims for compensation if the issue is caused by the landlord's negligence or if it affects the tenant's health and safety.
+
+3. Red Flag: The tenant must pay a fee if permission is granted to transfer the tenancy.
+
+Suggested Change: The tenant should not have to pay a fee to transfer the tenancy.
+
+Justification: It is unreasonable for tenants to have to pay a fee to transfer the tenancy, especially if they are doing so because of a change in their personal circumstances.
+
+Negotiation Tip: Ask the landlord to waive the fee or negotiate a lower fee. You could also offer to find a replacement tenant yourself to make the process easier for the landlord.
+
+4. Red Flag: The tenant must pay for any damages or repairs caused by them.
+
+Suggested Change: The tenant should only be responsible for damages or repairs that are their fault.
+
+Justification: It is unfair for tenants to be held responsible for damages or repairs that are not their fault, such as those caused by normal wear and tear.
+
+Negotiation Tip: Ask the landlord to clarify what they mean by "damages or repairs caused by them" and negotiate specific exceptions to this clause. For example, you could agree that the tenant is not responsible for damages or repairs caused by normal wear and tear or by events outside of their control.
+
+5. Red Flag: The landlord is not responsible for repairing the tenant's belongings or the premises if they are destroyed or damaged by a storm or flood.
+
+Suggested Change: The landlord should be responsible for repairing the premises if they are damaged by a storm or flood, but the tenant should be responsible for repairing their own belongings.
+
+Justification: It is reasonable for landlords to be responsible for repairing the premises if they are damaged by a storm or flood, as this is outside of the tenant's control. However, it is not reasonable for landlords to be responsible for repairing the tenant's belongings.
+
+Negotiation Tip: Ask the landlord to clarify what they mean by "belongings" and negotiate specific exceptions to this clause. For example, you could agree that the landlord is responsible for repairing any damage to the structure of the property, but the tenant is responsible for repairing any damage to their own personal belongings.`;
 export const SECTION_SUMMARY_PROMPT = "\nQuestion: Create a summary of this text, which is a portion of a contract. The summary should include the details of the rental property, the duration of the lease, the rental amount and payment terms, security deposit, maintenance and repair responsibilities, restrictions on use if available. The summary should not exceed 300 hundred things .If you are unable to summarize or all the content is generic answer 'Nothing'. \n Answer:";
 export const MAIN_SUMMARY_PROMPT ="Filter out all the non-important or generic sections.";
+export const FLAGS_PROMPT = 'Identify any terms in this agreement that are red flags (definitely deal breakers, really uncommon unfavorable) , orange flags (slightly unfavorable) and  green flags (uncommonly favorable) to the tenant and explain why. Don´t use acronyms and avoid complicated words. Do not repeat terms. You can return empty lists if terms that match the description are not found. You must just return a json format with the terms and explanations, take this placeholder values as an structure example: {"red_flags":["redflag 1 with explanation","redflag 2 with explanation"],"orange_flags":["orangeflag 1 with explanation"],"green_flags":["greenflag 1 with explanation","greenflag 2 with explanation"]}'
+export const ADVICE_PROMPT = "Give me advice on how I could change some of these terms to be more favorable to the tenant. Include suggested changes, justification and negotiation tips for each."
 export const summary = `This is a lease agreement between Jameson Property Management Limited (Landlord) and Emma Thompson (Tenant) for the premises located at 43-45 Thurloe Street, London, SW7 2LQ, United Kingdom. The lease term is from May 1, 2023, to April 30, 2024. The monthly rent is £3,500, and a security deposit of £4,000 is required. The Landlord is responsible for maintenance and repairs, except for damages caused by the Tenant or Tenant's guests. Pets are not allowed, and rent increase is subject to local market standards. The agreement is governed by the laws of England and Wales, and any changes require written agreement from both parties`;
 export const text = `### Definitions
 
