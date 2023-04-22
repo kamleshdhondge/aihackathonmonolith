@@ -1,5 +1,4 @@
 
-
 export function getSections(text) {
   // Split contents by '#'
   const sections = text.split('###');
