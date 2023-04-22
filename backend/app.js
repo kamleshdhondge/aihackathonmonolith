@@ -1,7 +1,7 @@
 
 
 import express from "express";
-
+import bodyParser from 'body-parser';
 
 import cors from 'cors';
 
@@ -17,6 +17,7 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 configRoutes(app);
 
