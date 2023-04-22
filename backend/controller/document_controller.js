@@ -1,4 +1,4 @@
-import { flags, summary, SECTION_SUMMARY_PROMPT,MAIN_SUMMARY_PROMPT, FLAGS_PROMPT, ADVICE_PROMPT } from "../model/constants.js";
+import { flags, advice, SECTION_SUMMARY_PROMPT,MAIN_SUMMARY_PROMPT, FLAGS_PROMPT, ADVICE_PROMPT } from "../model/constants.js";
 import { config } from "dotenv";
 import { getSections } from "./preprocesser.js";
 import { chatCompletion, completion, tokens } from "./openai_controller.js";
