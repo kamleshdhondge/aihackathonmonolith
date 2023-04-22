@@ -115,7 +115,7 @@ const LeftSideView = () => {
               window.print();
               document.body.innerHTML = originalContents;
           }}>
-            Download a PDF file 
+            Download a PDF file <img className="download-image" src="./download.png" />
           </a>
         </div>
       </div>
