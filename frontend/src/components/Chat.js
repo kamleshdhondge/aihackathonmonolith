@@ -65,7 +65,7 @@ const ChatQuery = (props) => {
   </div>;
 }
 
-const ChatResponse = (props) => {
+export const ChatResponse = (props) => {
   const {message} = props;
   return <div className='chat-response'>{message}</div>
 }
