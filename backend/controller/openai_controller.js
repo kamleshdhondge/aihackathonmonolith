@@ -47,6 +47,8 @@ export async function chatCompletion(messages, options) {
     model,
     temperature: options.temperature ?? temperature,
     max_tokens: options.maxTokens ?? maxTokens,
+    presence_penalty: options.presencePenalty,
+    frequency_penalty: options.frequencyPenalty,
   };
 
   const response = await axios({
