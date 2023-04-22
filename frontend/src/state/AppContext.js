@@ -4,15 +4,25 @@ const emptyFunction = () => {};
 
 const defaultValue = {
     activePage: '',
-    setActivePage: emptyFunction
+    setActivePage: emptyFunction,
+    chatBotmessages: [],
+    setChatBotmessages: emptyFunction,
+    sendQuery: false,
+    setSendQuery: emptyFunction
 }
 
 const useAPI = () => {
     const [activePage, setActivePage] = useState('');
+    const [chatBotmessages, setChatBotmessages] = useState([]);
+    const [sendQuery, setSendQuery] = useState(false);
 
     return {
         activePage,
-        setActivePage
+        setActivePage,
+        chatBotmessages,
+        setChatBotmessages,
+        sendQuery,
+        setSendQuery
     }
 }
 
