@@ -120,6 +120,8 @@
     right: 57px;
     top: 23px;
     box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
 }
 
 .download-link-icon {

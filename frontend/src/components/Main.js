@@ -110,7 +110,9 @@ const LeftSideView = () => {
               document.body.innerHTML = printContents;
               window.print();
               document.body.innerHTML = originalContents;
-          }}>Download a PDF file </a>
+          }}>
+            Download a PDF file 
+          </a>
         </div>
       </div>
       <Card>

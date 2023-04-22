@@ -15,7 +15,7 @@ const ChatBox = () => {
 
 const HelloMessage = () => {
   return <div className='hello-message'>
-    <div className='hello-section-user-name'><strong>Hello John!</strong></div>
+    <div className='hello-section-user-name'><strong>Hello Kamlesh!</strong></div>
     <div>I’m your lawyer assistant, how can I help?</div>
   </div>
 }
