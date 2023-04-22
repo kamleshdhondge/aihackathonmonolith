@@ -4,8 +4,9 @@
 }
 
 .chat-box {
-    background-color: #F8F8F8;
-    width: 100%;
+    box-sizing: border-box;
+    background-color: #fcfcfc;
+    width: calc(100%);
     height: 100vh;
     position: relative;
 }
@@ -32,7 +33,7 @@
 .messages-box {
     box-sizing: border-box;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     position: absolute;
     width: 100%;
     top: 0;
@@ -42,7 +43,6 @@
 }
 
 .submit-message-input {
-    font-size: 24px;
     width: 100%;
     background-color: #ECECEC;
     border: 0;
@@ -65,13 +65,14 @@
 }
 
 .chat-query-container {
-    margin-top: 30px;
-    padding-top: 30px;
     width: 100%;
     display: flex;
     box-sizing: border-box;
     padding-left: 5px;
     padding-right: 5px;
+    margin-top: 5px;
+    padding-top: 17px;
+    border-top: 1px solid #B1D0E0;
 }
 
 .chat-query-letter {
@@ -93,8 +94,19 @@
 }
 
 .chat-response {
-
     padding: 22px;
     background-color: #ECECEC;
     border-radius: 4px;
+}
+
+.message-block {
+    margin: 4px 0;
+}
+
+.hello-message {
+    margin: 25px 5px;
+}
+
+.hello-section-bold {
+    margin-bottom: 3px;
 }
