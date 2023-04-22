@@ -7,11 +7,7 @@ import { getSections } from "./preprocesser.js";
 config();
 
 export function summarize(text) {
-
-  return getSections("../model/contract.txt");
-  let tokens = encode(text);
-  let length = tokens.length;
-  return process.env.SECRET_KEY;
+  return getSections(text);
 }
 
 export function getFlags(text) {

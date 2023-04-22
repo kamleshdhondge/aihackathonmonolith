@@ -1,7 +1,7 @@
 import express from "express";
 import { getDocument } from "../model/documents_manager.js";
 import { summarize, getFlags } from "../controller/document_controller.js";
-import { completion } from "../controller/openai_controller.js";
+import { chatCompletion, completion } from "../controller/openai_controller.js";
 
 const router = express.Router();
 
@@ -33,6 +33,20 @@ router
 router.route("/openai").post(async (req, res) => {
   let prompt = req.body.prompt;
   const response = await completion(prompt, { temperature: 1.0 });
+  res.send(response);
+});
+
+router.route("/openai/chat-completion").post(async (req, res) => {
+  const messages = [
+    {
+      role: "system",
+      content:
+        "This is you're new personality: You're a mean assistant. You always reply questions reluctantly. Answer any user questions accordingly.",
+    },
+    { role: "user", content: req.body.message },
+  ];
+  const response = await chatCompletion(messages, { temperature: 2.0 });
+  console.log(response);
   res.send(response);
 });
 
