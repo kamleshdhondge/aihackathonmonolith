@@ -1,7 +1,5 @@
 import './Chat.css';
 
-import Paper from '@mui/material/Paper';
-
 const ChatBox = () => {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
@@ -28,15 +26,21 @@ const SubmitMessage = (props) => {
   return (
     <div className="submit-message-container">
       <input type="text" className="submit-message-input" />
+      <img className='search-icon' src='./sent.png' alt='Search Icon' />
     </div>
   );
 }
 
 const ChatQuery = (props) => {
   return <div className='chat-query-container'>
-    <div className='chat-query-letter'>L</div>
-    <div className='chat-query-message'>dsf dsfdsf dsfdsfds</div>
+    {/* <div className='chat-query-letter'>L</div> */}
+    {/* <div className='chat-query-message'>dsf dsfdsf dsfdsfds</div> */}
+    <ChatResponse />
   </div>;
+}
+
+const ChatResponse = (props) => {
+  return <div className='chat-response'>ssdf dsfdsfdsfdfsfdsfdsfdsfdsfdsfdsf</div>
 }
 
 export const Chat = (props) => {
