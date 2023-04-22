@@ -78,8 +78,8 @@ function ExpandableText({ text }) {
   );
 }
 
-const LeftSideView = () => {
-  const [summary, setSummary] =  useState(["",""]);
+const LeftSideView = ({open, setOpen}) => {
+  const [summary, setSummary] =  useState(["2","2"]);
   const [flags, setFlags] =  useState({data:{
     "Green flags":[1],
     "Orange flags" : [1],
@@ -87,14 +87,13 @@ const LeftSideView = () => {
 
   }});
 
-  const [open, setOpen] = useState(true);
   useEffect( () => {
   let data =  axios('http://localhost:3003/document/doc1/summary').then(async(data)=>{
     console.log(data.data.summary);
     setSummary(data.data.summary);
     let flags = await axios('http://localhost:3003/document/doc1/flags');
     console.log(flags);
-    setFlags(flags);
+    // setFlags(flags);
     setOpen(false);
   });
  },[]);
@@ -162,7 +161,10 @@ const LeftSideView = () => {
   );
 };
 
-const RightSideView = () => {
+const RightSideView = ({open, setOpen}) => {
+  if (open){
+    return < SimpleBackdrop open={open} setOpen={setOpen}/>
+   }
   return (
     <div className="thirty-percent-column">
       <Chat />
@@ -171,12 +173,14 @@ const RightSideView = () => {
 };
 
 export const Main = (props) => {
+  
+  const [open, setOpen] = useState(true);
   return (
     <div>
       <div><Header /></div>
       <div className="main-container">
-        <LeftSideView />
-        <RightSideView />
+        <LeftSideView open={open} setOpen={setOpen}/>
+        <RightSideView open={open} setOpen={setOpen}/>
         </div>
     </div>
   );
