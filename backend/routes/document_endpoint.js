@@ -52,7 +52,8 @@ router.route("/openai/chat-completion").post(async (req, res) => {
 
 router.route("/:id/summary").get(async (req, res) => {
   let text = getDocument(req.params.id).text;
-  res.json({ summarize: summarize(text) });
+  const summary = await summarize(text)
+  res.json({ summarize: summary});
 });
 
 router.route("/:id/flags").get(async (req, res) => {
