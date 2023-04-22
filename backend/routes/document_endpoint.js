@@ -1,6 +1,7 @@
 import express from "express";
 import { getDocument } from "../model/documents_manager.js";
-import { summarize,getFlags } from "../controller/document_controller.js";
+import { summarize, getFlags } from "../controller/document_controller.js";
+import { completion } from "../controller/openai_controller.js";
 
 const router = express.Router();
 
@@ -29,6 +30,12 @@ router
     res.json(assistantMessage);
   });
 
+router.route("/openai").post(async (req, res) => {
+  let prompt = req.body.prompt;
+  const response = await completion(prompt, { temperature: 1.0 });
+  res.send(response);
+});
+
 router.route("/:id/summary").get(async (req, res) => {
   let text = getDocument(req.params.id).text;
   res.json({ summarize: summarize(text) });
@@ -36,7 +43,7 @@ router.route("/:id/summary").get(async (req, res) => {
 
 router.route("/:id/flags").get(async (req, res) => {
   let text = getDocument(req.params.id).text;
-  res.json( getFlags(text) );
+  res.json(getFlags(text));
 });
 
 export default router;
