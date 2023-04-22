@@ -1,13 +1,12 @@
 import { useContext } from "react";
 import "./Landing.css";
 import { AppContext } from "../state/AppContext";
-import logo from "../landing_page.PNG";
 import DropzoneComponent from './DropzoneComponent.js';
 
 const LeftSideView = () => {
   return <div className="landing-page-column">
     <div className="dark-background">
-      <img className="hero-image" src={logo} />
+      <img className="hero-image" src='./hero-image.png' />
     </div>
   </div>;
 };
