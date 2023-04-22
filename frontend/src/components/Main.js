@@ -91,39 +91,36 @@ const GreenFlag = () => {
 };
 const LeftSideView = () => {
   return (
-    <>
-      <Card sx={{ minWidth: "calc(100vh - 70px)", minHeight: 600, maxWidth: '50%', overflow: 'scroll', maxHeight: 'calc(100vh - 70px)' }}>
-        <div style={{ margin: 40 }}>
-          <Typography variant="h4" gutterBottom>
+    <div className="report-container">
+      <Card>
+        <div className="report-content">
+          <h3>
             Type of contract
-          </Typography>
-          <Typography variant="body1" gutterBottom>
+          </h3>
+          <div className="margin-bottom-15">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod
-          </Typography>
+          </div>
           <Divider />
-          <Typography variant="h4" gutterBottom>
+          <h3 className="margin-top-15">
             Contract Summary
-          </Typography>
-          <Typography variant="body1" gutterBottom>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          </h3>
+          <div className="margin-bottom-15">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
             do eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing
             elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur
             adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet,
             consectetur adipiscing elit, sed do eiusmod
-          </Typography>
-          <div style={{ margin: 20 }}>
-            <Divider />
           </div>
+          <Divider />
           <Card variant="outlined" style={{ borderColor: "red",marginTop: 20,padding: 20  }}>
             <Typography variant="h4" gutterBottom>
               Red Flags
             </Typography>
             <div style={{ margin: 20 }}>
               <RedFlags />
-            
             </div>
           </Card>
           <Card variant="outlined" style={{ borderColor: "yellow",marginTop: 20,padding: 20  }}>
@@ -132,7 +129,6 @@ const LeftSideView = () => {
             </Typography>
             <div style={{ margin: 20 }}>
               <YellowFlag />
-             
             </div>
           </Card>
           <Card variant="outlined" style={{ borderColor: "green", marginTop: 20, padding: 20  }}>
@@ -141,16 +137,15 @@ const LeftSideView = () => {
             </Typography>
             <div style={{ margin: 20 }}>
               <GreenFlag />
-              
             </div>
           </Card>
           <div style={{ margin: 20 }}>
             <Divider />
           </div>
-          <Typography variant="h4" gutterBottom>
+          <h3 className="margin-top-15">
             This is our advice for you
-          </Typography>
-          <Typography variant="body1" gutterBottom>
+          </h3>
+          <div className="margin-bottom-15">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
             do eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -158,7 +153,7 @@ const LeftSideView = () => {
             elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur
             adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet,
             consectetur adipiscing elit, sed do eiusmod
-          </Typography>
+          </div>
           <div style={{margin:20}} />
           <Grid
             container
@@ -178,32 +173,13 @@ const LeftSideView = () => {
           </Grid>
         </div>
       </Card>
-      {/* <Grid
-        container
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Grid item >
-          <div style={{ backgroundColor: '#f5f5f5', height: 600, width:400, margin:20 }}>Summary</div>
-        </Grid>
-        <Grid item >
-          <div style={{ backgroundColor: 'red', height: 50, width:400, margin:20 }}>Red</div>
-        </Grid>
-        <Grid item >
-          <div style={{ backgroundColor: 'yellow', height: 50, width:400, margin:20 }}>Yello</div>
-        </Grid>
-        <Grid item >
-          <div style={{ backgroundColor: 'green', height: 50, width:400, margin:20 }} >Green</div>
-        </Grid>
-      </Grid> */}
-    </>
+    </div>
   );
 };
 
 const RightSideView = () => {
   return (
-    <div className="column">
+    <div className="thirty-percent-column">
       <Chat />
     </div>
   );

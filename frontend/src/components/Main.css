@@ -11,3 +11,30 @@
 .column {
     width: 50%;
 }
+
+.thirty-percent-column {
+    width: 45%;
+}
+
+.report-container {
+    height: calc(100vh - 70px);
+    background-color: #E3E3E3;
+    margin: 0;
+    padding: 50px;
+    width: 55%;
+    overflow: scroll;
+    box-sizing: border-box;
+}
+
+.report-content {
+    padding: 50px;
+}
+
+.margin-bottom-15 {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.margin-top-15 {
+    margin-top: 15px;
+}
