@@ -8,13 +8,16 @@ const defaultValue = {
     chatBotmessages: [],
     setChatBotmessages: emptyFunction,
     sendQuery: false,
-    setSendQuery: emptyFunction
+    setSendQuery: emptyFunction,
+    sendQueryMessage: '',
+    setSendQueryMessage: emptyFunction
 }
 
 const useAPI = () => {
     const [activePage, setActivePage] = useState('');
     const [chatBotmessages, setChatBotmessages] = useState([]);
     const [sendQuery, setSendQuery] = useState(false);
+    const [sendQueryMessage, setSendQueryMessage] = useState('');
 
     return {
         activePage,
@@ -22,7 +25,9 @@ const useAPI = () => {
         chatBotmessages,
         setChatBotmessages,
         sendQuery,
-        setSendQuery
+        setSendQuery,
+        sendQueryMessage,
+        setSendQueryMessage
     }
 }
 
