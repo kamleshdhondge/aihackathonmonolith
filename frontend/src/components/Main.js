@@ -13,6 +13,7 @@ import {
   Link,
 } from "@mui/material";
 import { FiberManualRecord } from "@mui/icons-material";
+import { Header } from "./Header";
 
 const RedFlags = () => {
   return (
@@ -91,7 +92,7 @@ const GreenFlag = () => {
 const LeftSideView = () => {
   return (
     <>
-      <Card sx={{ minWidth: "100vh", minHeight: 600, maxWidth: '50%', overflow: 'scroll', maxHeight: '100vh' }}>
+      <Card sx={{ minWidth: "calc(100vh - 70px)", minHeight: 600, maxWidth: '50%', overflow: 'scroll', maxHeight: 'calc(100vh - 70px)' }}>
         <div style={{ margin: 40 }}>
           <Typography variant="h4" gutterBottom>
             Type of contract
@@ -210,9 +211,13 @@ const RightSideView = () => {
 
 export const Main = (props) => {
   return (
-    <div className="container">
-      <LeftSideView />
-      <RightSideView />
+    <div>
+      <div><Header /></div>
+      <div className="main-container">
+        <LeftSideView />
+        <RightSideView />
+        </div>
     </div>
+    
   );
 };
