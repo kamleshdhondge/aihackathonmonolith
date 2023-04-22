@@ -59,8 +59,8 @@ router.route("/openai/chat-completion").post(async (req, res) => {
 
 router.route("/:id/summary").get(async (req, res) => {
   let text = getDocument(req.params.id).text;
-  const summary = await summarize(text)
-  res.json({ summarize: summary});
+  const summary = await summarize(text);
+  res.json({ summarize: summary });
 });
 
 router.route("/:id/flags").get(async (req, res) => {
@@ -74,7 +74,6 @@ router.route("/:id/embeddings").post(async (req, res) => {
   const take = req.body.take;
   let sectionsToProcess = sections;
   if (take) {
-    console.log(take);
     sectionsToProcess = sections.slice(0, take);
   }
 
