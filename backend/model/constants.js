@@ -1,48 +1,51 @@
 export const flags={
-      "Red flags": [
-      {
-      "flag": "This rent price is 20% higher than the local market average.",
-      "category": "rent amount"
-      },
-      {
-      "flag": "This pet policy may be disadvantageous to the tenant and is stricter than local law.",
-      "category": "pet policy"
-      },
-      {
-      "flag": "This renewal clause favors the landlord and is not in line with local law.",
-      "category": "renewal clause"
-      }
-      ],
-      "Orange flags": [
-      {
-      "flag": "This late payment penalty is 1.5x higher than the maximum allowed by local law.",
-      "category": "late payment penalty"
-      },
-      {
-      "flag": "This lease term is longer than the average in the local market.",
-      "category": "lease term"
-      },
-      {
-      "flag": "This notice period for move-out is shorter than the minimum required by local law.",
-      "category": "notice period"
-      }
-      ],
-      "Green flags": [
-      {
-      "flag": "This clause places maintenance responsibilities on the landlord, which is in line with local law.",
-      "category": "maintenance responsibilities"
-      },
-      {
-      "flag": "This security deposit is in line with the local market average.",
-      "category": "security deposit"
-      },
-      {
-      "flag": "This rent increase clause is in line with the average in the local market.",
-      "category": "rent increase clause"
-      }
-      ]
-      };
-
+    "red_flags": [
+      "The tenant is responsible for any damage caused by fixing items to walls",
+      "The tenant cannot make claims for compensation for various issues such as broken appliances or inconvenience caused by building maintenance",
+      "The tenant must pay a fee if permission is granted to transfer the tenancy",
+      "The tenant must pay for any damages or repairs caused by them",
+      "The landlord is not responsible for repairing the tenant's belongings or the premises if they are destroyed or damaged by a storm or flood",
+      "The landlord will not pay compensation to the tenant in case of damage caused by an insured risk",
+      "The landlord may agree to a proportionate reduction of the rent until the whole premises are fit to live in again"
+    ],
+    "orange_flags": [
+      "The tenant must keep the premises tidy and not use it for illegal or immoral activities",
+      "The tenant cannot operate any business from the premises or cause any nuisance to neighbors",
+      "The tenant cannot keep any dangerous or offensive materials in the premises",
+      "The tenant cannot change locks or keys without permission",
+      "The tenant cannot damage the premises or installations and must report any damage",
+      "The tenant must allow access to the premises for repairs and viewings",
+      "The tenant must ensure they have the right to rent throughout the term",
+      "The landlord is allowed access to the premises to remarket it for letting 24 hours after receiving the relocation notice",
+      "The tenant must pay interest if rent is late",
+      "The tenant must pay bank charges",
+      "The tenant must pay for television license",
+      "The tenant must clean windows, replace broken glass and light bulbs, unblock and keep all gutters, sewers, drains, toilet bowls, cisterns, basins, baths, showers, water pipes and ducts free from blockages, and report faults",
+      "The tenant cannot store any items on balconies or outdoor spaces",
+      "The tenant must vacate the premises, return it in the same condition as the start date, pay for any damages or repairs caused by them, pay for any outstanding bills, return any rented equipment, remove personal belongings and rubbish, and return the keys",
+      "The landlord or managing agent must inform the resident if they propose to make any deductions from the deposit",
+      "The tenant must restore the deposit to the agreed amount within 14 days of the request",
+      "The landlord must inform the tenant within 10 working days if any deductions are to be made from the deposit",
+      "If the tenant disputes any deductions, they must inform the landlord within 20 working days",
+      "If the amount to be taken from the deposit is greater than £5,000 and a dispute arises, formal arbitration must be used",
+      "If the monies due are more than the deposit held, the tenant must pay the excess within 14 days of written demand",
+      "The tenant must give at least two months' notice in writing to end the tenancy"
+    ],
+    "green_flags": [
+      "The managing agent is liable for any loss, theft or damage to parcels stored in the parcel room",
+      "The landlord is responsible for cleaning the premises before the tenancy starts",
+      "The landlord is responsible for paying ground rents and service charges",
+      "The landlord is not increasing the rent during the term",
+      "The landlord is ensuring proper functioning of gas and electrical appliances, and repairing and maintaining the installations in the premises",
+      "The landlord will not interrupt or interfere with the tenant's lawful occupation, enjoyment, and use of the premises",
+      "The landlord will take reasonable steps to ensure that the building and their contents are insured",
+      "If the tenant cannot live in the premises due to damage caused by an insured risk, they will not have to pay rent until they can live in the premises again",
+      "The tenant has the option to terminate the agreement within the first two weeks, subject to certain conditions",
+      "The tenant may relocate to another UNCLE building, subject to availability and compliance with the terms of the agreement"
+    ]
+  }
+export const SECTION_SUMMARY_PROMPT = "\nQuestion: Create a summary of this text, which is a portion of a contract. The summary should include the details of the rental property, the duration of the lease, the rental amount and payment terms, security deposit, maintenance and repair responsibilities, restrictions on use if available. The summary should not exceed 300 hundred things .If you are unable to summarize or all the content is generic answer 'Nothing'. \n Answer:";
+export const MAIN_SUMMARY_PROMPT ="Filter out all the non-important or generic sections.";
 export const summary = `This is a lease agreement between Jameson Property Management Limited (Landlord) and Emma Thompson (Tenant) for the premises located at 43-45 Thurloe Street, London, SW7 2LQ, United Kingdom. The lease term is from May 1, 2023, to April 30, 2024. The monthly rent is £3,500, and a security deposit of £4,000 is required. The Landlord is responsible for maintenance and repairs, except for damages caused by the Tenant or Tenant's guests. Pets are not allowed, and rent increase is subject to local market standards. The agreement is governed by the laws of England and Wales, and any changes require written agreement from both parties`;
 export const text = `### Definitions
 
