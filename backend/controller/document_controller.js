@@ -4,7 +4,6 @@ import { getSections } from "./preprocesser.js";
 import { chatCompletion, completion, tokens } from "./openai_controller.js";
 
 const MAX_TOKENS = 500;
-
 config();
 
 export async function summarize(text) {
